@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://noirvpn.org/sitemap.xml
