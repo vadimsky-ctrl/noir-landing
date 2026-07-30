@@ -333,7 +333,8 @@ h2.title{
 .loc-meta .stat b{color:var(--text);font-weight:600;}
 .loc-status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--success);}
 .loc-status .live{width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 9px rgba(63,185,80,0.8);animation:pulse 2.6s var(--ease) infinite;}
-.loc-foot{margin-top:30px;display:flex;align-items:center;gap:12px;font-size:14px;color:var(--muted);justify-content:center;text-align:center;flex-wrap:wrap;}
+/* running text, not a flex row: inline spans must stay inside the sentence */
+.loc-foot{margin-top:30px;font-size:14px;color:var(--muted);text-align:center;line-height:1.7;text-wrap:pretty;}
 
 /* wide «36 обходов» card with brand cat */
 .bypass{position:relative;margin-top:20px;border-radius:var(--radius);border:1px solid var(--border-strong);overflow:hidden;background:var(--surface);min-height:238px;display:flex;align-items:stretch;box-shadow:0 24px 60px rgba(0,0,0,0.35);}
@@ -424,10 +425,13 @@ h2.title{
 .price-amount .per{font-size:17px;color:var(--muted);}
 .price-sub{margin:14px 0 0;font-size:15px;color:var(--muted);}
 .price-terms{display:flex;justify-content:center;gap:8px;margin:28px 0 0;flex-wrap:wrap;}
-.term{padding:9px 16px;border-radius:11px;background:var(--bg);border:1px solid var(--border);font-size:13px;color:var(--muted);text-align:center;min-width:92px;}
-.term b{display:block;color:var(--text);font-size:15px;font-weight:600;margin-bottom:2px;}
+.term{padding:10px 16px 11px;border-radius:11px;background:var(--bg);border:1px solid var(--border);font-size:13px;color:var(--muted);text-align:center;min-width:98px;}
+.term b{display:block;color:var(--muted);font-size:12px;font-weight:500;letter-spacing:0.02em;}
+.term .pv{display:block;color:var(--text);font-size:16px;font-weight:600;margin-top:3px;}
+.term i{display:block;font-style:normal;font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:3px;white-space:nowrap;}
 .term.best{border-color:rgba(var(--accent-rgb),0.4);background:rgba(var(--accent-rgb),0.06);}
-.term.best b{color:var(--accent);}
+.term.best .pv{color:var(--accent);}
+.term.best i{color:rgba(var(--accent-rgb),0.75);}
 .price-incl{display:grid;grid-template-columns:1fr 1fr;gap:12px 26px;margin:32px auto 0;max-width:460px;text-align:left;}
 .price-incl li{display:flex;gap:11px;font-size:14.5px;color:var(--text);list-style:none;}
 .price-incl li svg{width:18px;height:18px;color:var(--success);flex:none;margin-top:1px;}
@@ -508,10 +512,16 @@ h2.title{
 .mcta.show{transform:none;}
 .mcta .ic{width:40px;height:40px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;background:rgba(244,244,245,0.06);border:1px solid var(--border);}
 .mcta .ic svg{width:20px;height:20px;color:var(--accent);}
-.mcta .tx{display:flex;flex-direction:column;min-width:0;line-height:1.2;}
-.mcta .tx b{font-size:13.5px;font-weight:600;color:var(--text);white-space:nowrap;}
-.mcta .tx i{font-style:normal;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.01em;margin-top:3px;white-space:nowrap;}
+.mcta .tx{display:flex;flex-direction:column;min-width:0;flex:1 1 auto;line-height:1.2;overflow:hidden;}
+.mcta .tx b{font-size:13.5px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mcta .tx i{font-style:normal;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.01em;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .mcta .go{margin-left:auto;flex:none;display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 19px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-size:14.5px;font-weight:600;box-shadow:0 8px 24px rgba(var(--accent-rgb),0.34);}
+/* tiny phones: give the label room before the pill starts eating it */
+@media (max-width:380px){
+  .mcta{gap:10px;padding-left:14px;padding-right:14px;}
+  .mcta .ic{display:none;}
+  .mcta .go{padding:0 16px;font-size:14px;}
+}
 
 /* ============================================================
    RESPONSIVE
@@ -537,7 +547,7 @@ h2.title{
 
   .section{padding:72px 0;}
   .section-head{margin-bottom:38px;}
-  .wrap{padding:0 18px;}
+  .wrap{padding:0 24px;}
   .section-head p.lead{font-size:16.5px;}
 
   /* hero leads with copy, device follows */
@@ -551,7 +561,10 @@ h2.title{
 
   .feat-grid{grid-template-columns:1fr;}
   .price-incl{grid-template-columns:1fr;}
-  .band-inner{justify-content:center;gap:14px 22px;padding:20px 0;}
+  /* stacked band: centre the block, keep items left-aligned so the icons line up */
+  .band-inner{flex-direction:column;align-items:flex-start;flex-wrap:nowrap;
+              width:max-content;max-width:100%;gap:13px;padding:22px 24px;}
+  .band-item{white-space:normal;}
 
   /* footer: brand spans full row, link columns share the next ---- */
   .foot-grid{grid-template-columns:repeat(3,1fr);gap:30px 20px;}
@@ -580,11 +593,12 @@ h2.title{
     width:auto;font-size:15px;font-weight:600;color:var(--text);letter-spacing:-0.01em;
     background:rgba(var(--accent-rgb),0.06);
   }
-  .ctable td[data-th]{display:flex;gap:12px;align-items:baseline;}
+  /* label out of flow, so the cell text keeps normal inline wrapping */
+  .ctable td[data-th]{display:block;position:relative;padding-left:132px;}
   .ctable td[data-th]::before{
-    content:attr(data-th);flex:none;width:102px;
+    content:attr(data-th);position:absolute;left:18px;top:14px;width:102px;
     font-family:var(--mono);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;
-    color:var(--faint);padding-top:1px;
+    color:var(--faint);
   }
   .ctable tbody td.us{background:rgba(var(--accent-rgb),0.05);}
   .ctable tbody td.us[data-th]::before{color:var(--accent);}
@@ -605,7 +619,7 @@ h2.title{
 }
 
 @media (max-width:420px){
-  .wrap{padding:0 15px;}
+  .wrap{padding:0 22px;}
   .section{padding:60px 0;}
   h2.title{font-size:27px;}
   .hero h1{font-size:37px;}

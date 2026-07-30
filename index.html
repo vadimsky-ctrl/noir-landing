@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Noir VPN: VPN, который не отваливается</title>
-<meta name="description" content="Noir: VPN с протоколом Reality и 36 вариантами обхода белых списков. Во всех регионах, у всех операторов. 6 нод: Германия, Нидерланды, США. 7 дней бесплатно, без карты." />
+<meta name="description" content="Noir VPN: протокол Reality и 36 вариантов обхода белых списков — работает у всех операторов и в шатдаунах. Ноды в Германии, Нидерландах и США. 7 дней бесплатно, без карты." />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <link rel="canonical" href="https://noirvpn.org/" />
 <meta name="theme-color" content="#0B0B0C" />
@@ -39,14 +39,22 @@
     {
       "@type": "Organization",
       "@id": "https://noirvpn.org/#org",
-      "name": "Noir",
+      "name": "Noir VPN",
+      "alternateName": "Noir",
       "url": "https://noirvpn.org/",
       "logo": "https://noirvpn.org/icon-180.png",
       "slogan": "Тихий трафик.",
+      "description": "VPN-сервис для пользователей внутри России: протокол Reality, 36 вариантов обхода whitelist-режима мобильного интернета, ноды в Германии, Нидерландах и США. Подключение и оплата через Telegram-бот.",
       "sameAs": [
         "https://t.me/NoirVPN_bot",
         "https://t.me/noirvpn_status"
-      ]
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "url": "https://t.me/HelpNoir_bot",
+        "availableLanguage": ["ru"]
+      }
     },
     {
       "@type": "WebSite",
@@ -54,17 +62,20 @@
       "url": "https://noirvpn.org/",
       "name": "Noir VPN",
       "inLanguage": "ru-RU",
+      "dateModified": "2026-07-30",
       "publisher": { "@id": "https://noirvpn.org/#org" }
     },
     {
       "@type": "Product",
       "name": "Noir VPN",
-      "description": "Подписка на VPN с протоколом Reality и обходом whitelist-режима. Безлимитный трафик, 5 устройств, ноды в Германии, Нидерландах и США.",
+      "description": "Подписка на VPN с протоколом Reality и обходом whitelist-режима мобильного интернета. Безлимитный трафик, 5 устройств, 50 ГБ обхода белых списков в месяц, ноды в Германии, Нидерландах и США.",
       "brand": { "@id": "https://noirvpn.org/#org" },
       "offers": {
-        "@type": "Offer",
-        "price": "249",
+        "@type": "AggregateOffer",
+        "lowPrice": "249",
+        "highPrice": "1690",
         "priceCurrency": "RUB",
+        "offerCount": "4",
         "availability": "https://schema.org/InStock",
         "url": "https://t.me/NoirVPN_bot"
       }
@@ -80,12 +91,12 @@
         {
           "@type": "Question",
           "name": "Почему он «не отваливается», в отличие от других?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Мы держим несколько нод, мониторим их круглосуточно и автоматически меняем заблокированные IP. Клиент Happ сам переключается на рабочий узел по urltest, вы не делаете ничего." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Мы держим ноды в трёх странах, мониторим их круглосуточно и меняем заблокированные IP. Клиент Happ сам переключается на рабочий узел по urltest, ты не делаешь ничего." }
         },
         {
           "@type": "Question",
           "name": "Это анонимно?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Честный ответ: «полной анонимности» не существует. Мы шифруем трафик и не торгуем данными, но не обещаем того, что технически невозможно. Если вам где-то гарантируют 100% анонимность, это маркетинг." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Честный ответ: «полной анонимности» не существует. Мы шифруем трафик и не торгуем данными, но не обещаем того, что технически невозможно. Если тебе где-то гарантируют 100% анонимность, это маркетинг." }
         },
         {
           "@type": "Question",
@@ -95,12 +106,27 @@
         {
           "@type": "Question",
           "name": "Как подключиться?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Откройте @NoirVPN_bot, заберите 7 дней бесплатно и нажмите «Подключить», приложение Happ откроется само и импортирует подписку. Весь процесс займёт около 30 секунд." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Открой @NoirVPN_bot, забери 7 дней бесплатно и нажми «Подключить», приложение Happ откроется само и импортирует подписку. Весь процесс займёт около 30 секунд." }
         },
         {
           "@type": "Question",
           "name": "Сколько стоит и нужна ли карта?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Пробные 7 дней: бесплатно и без карты, с лимитом 8 ГБ на обход белых списков. Дальше единый тариф от 249 ₽/мес с 50 ГБ обхода в месяц (можно докупить), дешевле при оплате на 3 / 6 / 12 месяцев. Оплата картой РФ, по СБП или криптой." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Пробные 7 дней: бесплатно и без карты, с лимитом 30 ГБ трафика и 8 ГБ на обход белых списков. Дальше единый тариф 249 ₽ за месяц, 599 ₽ за 3 месяца, 999 ₽ за 6 и 1690 ₽ за год — то есть от 141 ₽/мес на длинном сроке. В подписке 50 ГБ обхода в месяц, можно докупить. Оплата картой РФ, по СБП или криптой." }
+        },
+        {
+          "@type": "Question",
+          "name": "На каких устройствах работает?",
+          "acceptedAnswer": { "@type": "Answer", "text": "На всём, где есть Happ: iPhone и iPad, Android, Windows, macOS, Android TV. Одна подписка — 5 устройств одновременно, отдельной лицензии на каждое не нужно." }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Reality лучше WireGuard и OpenVPN?",
+          "acceptedAnswer": { "@type": "Answer", "text": "WireGuard и OpenVPN узнаются по сигнатуре пакетов: DPI видит, что это VPN, и режет его целиком. Reality вместо этого притворяется обычным TLS-соединением с настоящим сайтом и не требует домена-прокладки, поэтому блокировать его «по типу трафика» нечем. Поэтому в РФ живут Reality и VLESS, а WireGuard-сервисы отваливаются первыми." }
+        },
+        {
+          "@type": "Question",
+          "name": "Будет ли работать во время отключения мобильного интернета?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Да, для этого и сделаны 36 вариантов обхода. В шатдаун оператор оставляет доступ только к «разрешённым» адресам — Noir проходит и в этом режиме. По Wi-Fi при этом всё работает как обычно, ограничение касается только мобильной сети." }
         }
       ]
     }
@@ -123,7 +149,7 @@
     </nav>
     <div class="nav-cta">
       <span class="nav-status"><span class="live"></span>все ноды в норме</span>
-      <a class="btn btn-primary" href="https://t.me/NoirVPN_bot" target="_blank" rel="noopener">
+      <a class="btn btn-primary" href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">
         Открыть в Telegram
       </a>
       <button class="nav-burger" id="burger" aria-label="Меню"><i></i><i></i><i></i></button>
@@ -138,7 +164,7 @@
   <a href="#locations">Локации</a>
   <a href="#pricing">Тариф</a>
   <a href="#faq">Вопросы</a>
-  <a class="btn btn-primary" href="https://t.me/NoirVPN_bot" target="_blank" rel="noopener">Открыть в Telegram</a>
+  <a class="btn btn-primary" href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">Открыть в Telegram</a>
 </nav>
 
 <span id="top"></span>
@@ -156,7 +182,7 @@
       <h1>VPN, который <em>не&nbsp;отваливается</em></h1>
       <p class="hero-sub">Протокол Reality и 36 вариантов обхода whitelist-режима: у всех операторов, во всех регионах. Без карты, подключение в Happ за&nbsp;30&nbsp;секунд.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary btn-lg" href="https://t.me/NoirVPN_bot" target="_blank" rel="noopener">
+        <a class="btn btn-primary btn-lg" href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3c.3-1.3-.5-1.8-1.3-1.5L3.3 9.6c-1.2.5-1.2 1.1-.2 1.4l4.5 1.4 10.4-6.6c.5-.3.9-.1.6.2l-8.4 7.6-.3 4.6c.5 0 .7-.2.9-.4l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-13.9z"/></svg>
           Забрать 7 дней бесплатно
         </a>
@@ -166,9 +192,9 @@
         <span>Безлимит трафика</span>
         <span>5 устройств</span>
         <span>до 300 Мбит/с</span>
-        <span>6 нод: DE · NL · US</span>
+        <span>3 локации: DE · NL · US</span>
       </div>
-      <p class="hero-note">8 ГБ обхода белых списков на пробном · без карты · аккаунт старше 30 дней</p>
+      <p class="hero-note">8 ГБ обхода белых списков на пробном · без карты · без привязки</p>
     </div>
 
     <!-- phone / Telegram bot mock -->
@@ -217,7 +243,7 @@
     </div>
     <div class="band-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
-      <span>6 нод · мониторинг 24/7 · ротация IP</span>
+      <span>3 локации · мониторинг 24/7 · ротация IP</span>
     </div>
     <div class="band-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 12l2 2 4-4"/></svg>
@@ -346,37 +372,37 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Локации</span>
-      <h2 class="title">Шесть нод. И 36 обходов белых списков.</h2>
-      <p class="lead">По две ноды в Германии, Нидерландах и США. Направления, за которыми мы реально следим. Статус нод виден в канале <span class="accent">@noirvpn_status</span>.</p>
+      <h2 class="title">Три локации. И 36 обходов белых списков.</h2>
+      <p class="lead">Германия, Нидерланды, США. Не сто стран на бумаге, а направления, за которыми мы реально следим. Статус нод виден в канале <span class="accent">@noirvpn_status</span>.</p>
     </div>
     <div class="loc-grid">
       <div class="loc reveal">
         <div class="loc-top">
           <span class="loc-flag"><img src="assets/flag-de.webp" alt="Германия" /></span>
-          <div><div class="nm">Германия <span class="nx">2 ноды</span></div><div class="code">noir-de-01·02 · Frankfurt</div></div>
+          <div><div class="nm">Германия <span class="nx">основная</span></div><div class="code">noir-de · Frankfurt</div></div>
         </div>
         <div class="loc-meta">
-          <span class="stat">пинг <b>~38 мс</b></span>
+          <span class="stat">пинг из МСК <b>~40 мс</b></span>
           <span class="loc-status"><span class="live"></span>в норме</span>
         </div>
       </div>
       <div class="loc reveal">
         <div class="loc-top">
           <span class="loc-flag"><img src="assets/flag-nl.png" alt="Нидерланды" /></span>
-          <div><div class="nm">Нидерланды <span class="nx">2 ноды</span></div><div class="code">noir-nl-01·02 · Amsterdam</div></div>
+          <div><div class="nm">Нидерланды <span class="nx">резервная</span></div><div class="code">noir-nl · Rotterdam</div></div>
         </div>
         <div class="loc-meta">
-          <span class="stat">пинг <b>~41 мс</b></span>
+          <span class="stat">пинг из МСК <b>~49 мс</b></span>
           <span class="loc-status"><span class="live"></span>в норме</span>
         </div>
       </div>
       <div class="loc reveal">
         <div class="loc-top">
           <span class="loc-flag"><img src="assets/flag-us.webp" alt="США" /></span>
-          <div><div class="nm">США <span class="nx">2 ноды</span></div><div class="code">noir-us-01·02 · New York</div></div>
+          <div><div class="nm">США <span class="nx">для сервисов</span></div><div class="code">noir-us · Dallas</div></div>
         </div>
         <div class="loc-meta">
-          <span class="stat">пинг <b>~96 мс</b></span>
+          <span class="stat">пинг из МСК <b>~153 мс</b></span>
           <span class="loc-status"><span class="live"></span>в норме</span>
         </div>
       </div>
@@ -475,32 +501,31 @@
     <div class="price-card reveal">
       <span class="price-trial"><span style="width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block"></span>7 дней бесплатно · 8 ГБ обхода · без карты</span>
       <div class="price-amount">
-        <span class="from">от</span>
         <span class="num">249&nbsp;₽</span>
         <span class="per">/ мес</span>
       </div>
-      <p class="price-sub">Единый тариф Noir: безлимит трафика, 5 устройств, все локации и 50 ГБ обхода белых списков в месяц (можно докупить).</p>
+      <p class="price-sub">Единый тариф Noir: безлимит трафика, 5 устройств, все локации и 50 ГБ обхода белых списков в месяц (можно докупить). На длинном сроке месяц дешевле — до 141 ₽.</p>
       <div class="price-terms">
-        <div class="term"><b>1 мес</b>обычная</div>
-        <div class="term"><b>3 мес</b>дешевле</div>
-        <div class="term"><b>6 мес</b>выгоднее</div>
-        <div class="term best"><b>12 мес</b>лучшая цена</div>
+        <div class="term"><b>1 мес</b><span class="pv">249 ₽</span><i>249 ₽/мес</i></div>
+        <div class="term"><b>3 мес</b><span class="pv">599 ₽</span><i>200 ₽/мес</i></div>
+        <div class="term"><b>6 мес</b><span class="pv">999 ₽</span><i>167 ₽/мес</i></div>
+        <div class="term best"><b>12 мес</b><span class="pv">1690 ₽</span><i>141 ₽/мес · −43%</i></div>
       </div>
       <ul class="price-incl">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> Безлимитный трафик</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> До 300 Мбит/с</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> 5 устройств</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> 36 обходов · 50 ГБ/мес</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> 6 нод: DE · NL · US</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> Реферал: +30 дней другу</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> 3 локации: DE · NL · US</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> Реферал: +7 дней другу</li>
       </ul>
       <div class="price-cta">
-        <a class="btn btn-primary btn-lg" href="https://t.me/NoirVPN_bot" target="_blank" rel="noopener">
+        <a class="btn btn-primary btn-lg" href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3c.3-1.3-.5-1.8-1.3-1.5L3.3 9.6c-1.2.5-1.2 1.1-.2 1.4l4.5 1.4 10.4-6.6c.5-.3.9-.1.6.2l-8.4 7.6-.3 4.6c.5 0 .7-.2.9-.4l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-13.9z"/></svg>
           Начать с 7 дней бесплатно
         </a>
       </div>
-      <p class="price-foot">Точные цены за 1 / 3 / 6 / 12 месяцев покажет бот. Оплата: карта РФ, СБП, крипта или через поддержку @HelpNoir_bot.</p>
+      <p class="price-foot">Оплата картой РФ, по СБП или криптой — прямо в боте. Вопросы по оплате: @HelpNoir_bot.</p>
     </div>
   </div>
 </section>
@@ -521,11 +546,11 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Почему он «не отваливается», в отличие от других?<span class="ic"></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Мы держим несколько нод, мониторим их круглосуточно и автоматически меняем заблокированные IP. Клиент Happ сам переключается на рабочий узел по <span class="mono">urltest</span>, вы не делаете ничего.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Мы держим ноды в трёх странах, мониторим их круглосуточно и меняем заблокированные IP. Клиент Happ сам переключается на рабочий узел по <span class="mono">urltest</span>, ты не делаешь ничего.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Это анонимно?<span class="ic"></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Честный ответ: «полной анонимности» не существует. Мы шифруем трафик и не торгуем данными, но не обещаем того, что технически невозможно. Если вам где-то гарантируют 100% анонимность, это маркетинг.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Честный ответ: «полной анонимности» не существует. Мы шифруем трафик и не торгуем данными, но не обещаем того, что технически невозможно. Если тебе где-то гарантируют 100% анонимность, это маркетинг.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Будут ли работать Wildberries, Ozon, Госуслуги?<span class="ic"></span></button>
@@ -533,11 +558,23 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Как подключиться?<span class="ic"></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Откройте <span class="mono">@NoirVPN_bot</span>, заберите 7 дней бесплатно и нажмите «Подключить», приложение Happ откроется само и импортирует подписку. Весь процесс займёт около 30 секунд.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Открой <span class="mono">@NoirVPN_bot</span>, забери 7 дней бесплатно и нажми «Подключить», приложение Happ откроется само и импортирует подписку. Весь процесс займёт около 30 секунд.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Сколько стоит и нужна ли карта?<span class="ic"></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Пробные 7 дней: бесплатно и без карты, с лимитом 8 ГБ на обход белых списков. Дальше единый тариф от 249 ₽/мес с 50 ГБ обхода в месяц (можно докупить), дешевле при оплате на 3 / 6 / 12 месяцев. Оплата картой РФ, по СБП или криптой; поможет и поддержка <span class="mono">@HelpNoir_bot</span>.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Пробные 7 дней: бесплатно и без карты, с лимитом 30 ГБ трафика и 8 ГБ на обход белых списков. Дальше единый тариф 249 ₽ за месяц, 599 ₽ за 3 месяца, 999 ₽ за 6 и 1690 ₽ за год — то есть от 141 ₽/мес на длинном сроке. В подписке 50 ГБ обхода в месяц, можно докупить. Оплата картой РФ, по СБП или криптой; поможет и поддержка <span class="mono">@HelpNoir_bot</span>.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">На каких устройствах работает?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">На всём, где есть Happ: iPhone и iPad, Android, Windows, macOS, Android TV. Одна подписка — 5 устройств одновременно, отдельной лицензии на каждое не нужно.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Чем Reality лучше WireGuard и OpenVPN?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">WireGuard и OpenVPN узнаются по сигнатуре пакетов: DPI видит, что это VPN, и режет его целиком. Reality вместо этого притворяется обычным TLS-соединением с настоящим сайтом и не требует домена-прокладки, поэтому блокировать его «по типу трафика» нечем. Поэтому в РФ живут Reality и VLESS, а WireGuard-сервисы отваливаются первыми.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Будет ли работать во время отключения мобильного интернета?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Да, для этого и сделаны 36 вариантов обхода. В шатдаун оператор оставляет доступ только к «разрешённым» адресам — Noir проходит и в этом режиме. По Wi-Fi при этом всё работает как обычно, ограничение касается только мобильной сети.</div></div>
       </div>
     </div>
   </div>
@@ -549,9 +586,9 @@
   <div class="fglow"></div>
   <div class="wrap">
     <h2 class="reveal">Тихий трафик.<br/>Который не замолкает.</h2>
-    <p class="reveal">Заберите 7 дней бесплатно прямо в Telegram. Без карты, без анкет, подключение за 30 секунд.</p>
+    <p class="reveal">Забери 7 дней бесплатно прямо в Telegram. Без карты, без анкет, подключение за 30 секунд.</p>
     <div class="hero-cta reveal">
-      <a class="btn btn-primary btn-lg" href="https://t.me/NoirVPN_bot" target="_blank" rel="noopener">
+      <a class="btn btn-primary btn-lg" href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3c.3-1.3-.5-1.8-1.3-1.5L3.3 9.6c-1.2.5-1.2 1.1-.2 1.4l4.5 1.4 10.4-6.6c.5-.3.9-.1.6.2l-8.4 7.6-.3 4.6c.5 0 .7-.2.9-.4l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-13.9z"/></svg>
         Открыть @NoirVPN_bot
       </a>
@@ -578,7 +615,7 @@
       </div>
       <div class="foot-col">
         <h4>Telegram</h4>
-        <a href="https://t.me/NoirVPN_bot" target="_blank" rel="noopener">Бот @NoirVPN_bot</a>
+        <a href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">Бот @NoirVPN_bot</a>
         <a href="https://t.me/noirvpn_status" target="_blank" rel="noopener">Канал @noirvpn_status</a>
         <a href="https://t.me/HelpNoir_bot" target="_blank" rel="noopener">Поддержка @HelpNoir_bot</a>
       </div>
@@ -592,7 +629,7 @@
     <div class="foot-bottom">
       <span class="cp">© 2026 Noir · noirvpn.org</span>
       <div class="legal">
-        <a href="https://t.me/NoirVPN_bot" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">Telegram</a>
         <a href="#top">Наверх</a>
       </div>
     </div>
@@ -601,13 +638,13 @@
 </footer>
 
 <!-- ============================ STICKY MOBILE CTA ============================ -->
-<a class="mcta" id="mcta" href="https://t.me/NoirVPN_bot" target="_blank" rel="noopener" aria-label="Открыть Noir в Telegram">
+<a class="mcta" id="mcta" href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener" aria-label="Открыть Noir в Telegram">
   <span class="ic">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3c.3-1.3-.5-1.8-1.3-1.5L3.3 9.6c-1.2.5-1.2 1.1-.2 1.4l4.5 1.4 10.4-6.6c.5-.3.9-.1.6.2l-8.4 7.6-.3 4.6c.5 0 .7-.2.9-.4l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-13.9z"/></svg>
   </span>
   <span class="tx">
     <b>7 дней бесплатно</b>
-    <i>8 ГБ обхода · без карты · Happ за 30 сек</i>
+    <i>8 ГБ обхода · без карты</i>
   </span>
   <span class="go">Открыть</span>
 </a>

@@ -2,32 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://noirvpn.org/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://noirvpn.org/offer.html</loc>
-    <lastmod>2026-07-29</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://noirvpn.org/privacy.html</loc>
-    <lastmod>2026-07-29</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://noirvpn.org/refund.html</loc>
-    <lastmod>2026-07-29</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://noirvpn.org/contacts.html</loc>
-    <lastmod>2026-07-29</lastmod>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://noirvpn.org/payment-info.html</loc>
-    <lastmod>2026-07-29</lastmod>
-    <priority>0.4</priority>
   </url>
 </urlset>
