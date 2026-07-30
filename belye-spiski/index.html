@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru" data-accent="red">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Белые списки: как понять, что интернет в whitelist-режиме, и почему VPN там отваливается</title>
+<meta name="description" content="Что такое режим белых списков у мобильных операторов, как проверить его за минуту, почему WireGuard и QUIC в нём не работают вообще и что нужно, чтобы соединение всё-таки прошло." />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<link rel="canonical" href="https://noirvpn.org/belye-spiski/" />
+<meta name="theme-color" content="#0B0B0C" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Noir VPN" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:url" content="https://noirvpn.org/belye-spiski/" />
+<meta property="og:title" content="Белые списки: как понять, что интернет в whitelist-режиме" />
+<meta property="og:description" content="Проверка за минуту, почему UDP-протоколы в этом режиме мертвы целиком и что остаётся работать." />
+<meta property="og:image" content="https://noirvpn.org/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Белые списки: как понять, что интернет в whitelist-режиме" />
+<meta name="twitter:description" content="Проверка за минуту, почему UDP-протоколы в этом режиме мертвы целиком и что остаётся работать." />
+<meta name="twitter:image" content="https://noirvpn.org/og.png" />
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/icon-180.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/noir-landing.css" />
+<style>
+  .art-top{border-bottom:1px solid var(--border);background:rgba(11,11,12,0.9);backdrop-filter:blur(14px);
+           position:sticky;top:0;z-index:30;}
+  .art-top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;}
+  .art{max-width:760px;margin:0 auto;padding:56px 0 40px;}
+  .art .crumbs{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-spacing:0.04em;
+                text-transform:uppercase;margin:0 0 22px;}
+  .art .crumbs a{color:var(--faint);text-decoration:none;border-bottom:none;}
+  .art .crumbs a:hover{color:var(--muted);}
+  .art h1{font-size:clamp(30px,5.4vw,46px);line-height:1.12;letter-spacing:-0.02em;margin:0 0 20px;}
+  .art .stand{font-size:19px;line-height:1.6;color:var(--muted);margin:0 0 14px;text-wrap:pretty;}
+  .art .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin:0 0 44px;}
+  .art h2{font-size:clamp(22px,3.4vw,28px);line-height:1.25;letter-spacing:-0.01em;margin:52px 0 16px;}
+  .art h3{font-size:18.5px;margin:34px 0 10px;}
+  .art p{margin:0 0 18px;line-height:1.72;text-wrap:pretty;}
+  .art ul,.art ol{margin:0 0 20px;padding-left:22px;}
+  .art li{margin:0 0 10px;line-height:1.68;}
+  .art code{font-family:var(--mono);font-size:0.88em;background:var(--surface);border:1px solid var(--border);
+            border-radius:6px;padding:1px 6px;color:var(--text);}
+  .art a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(var(--accent-rgb),0.35);}
+  .art a:hover{border-bottom-color:var(--accent);}
+  /* кнопки не трогаем: у них своя заливка и свой цвет текста */
+  .art a.btn{color:var(--accent-ink);border-bottom:none;}
+  .art a.btn:hover{border-bottom:none;}
+  .art .callout{background:var(--surface);border:1px solid var(--border);border-left:2px solid var(--accent);
+                border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:18px 20px;margin:0 0 24px;}
+  .art .callout p:last-child{margin:0;}
+  .art table{width:100%;border-collapse:collapse;margin:0 0 24px;font-size:15px;}
+  .art th,.art td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:top;}
+  .art th{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--faint);
+          font-weight:500;}
+  .art td b{color:var(--text);}
+  .art .end{margin:56px 0 0;padding:26px 24px;background:var(--surface);border:1px solid var(--border);
+            border-radius:var(--radius);}
+  .art .end h2{margin:0 0 12px;font-size:22px;}
+  .art .end p{color:var(--muted);}
+  .art .end .btn{margin-top:8px;}
+  .art .note{font-size:14.5px;color:var(--faint);}
+  @media (max-width:760px){
+    /* на лендинге кнопка в шапке уступает место бургеру, здесь бургера нет: возвращаем её */
+    .art-top .nav-cta .btn-primary{display:inline-flex;padding:0 14px;height:36px;font-size:13.5px;}
+    .art-top .nav-status{display:none;}
+  }
+  @media (max-width:560px){
+    .art{padding:36px 0 30px;}
+    .art h2{margin:40px 0 14px;}
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://noirvpn.org/belye-spiski/#article",
+      "headline": "Белые списки: как понять, что интернет в whitelist-режиме, и почему VPN там отваливается",
+      "description": "Что такое режим белых списков у мобильных операторов, как проверить его за минуту, почему WireGuard и QUIC в нём не работают вообще и что нужно, чтобы соединение всё-таки прошло.",
+      "inLanguage": "ru",
+      "datePublished": "2026-07-30",
+      "dateModified": "2026-07-30",
+      "author": { "@type": "Organization", "name": "Noir VPN", "url": "https://noirvpn.org/" },
+      "publisher": { "@type": "Organization", "name": "Noir VPN", "url": "https://noirvpn.org/" },
+      "mainEntityOfPage": "https://noirvpn.org/belye-spiski/",
+      "image": "https://noirvpn.org/og.png",
+      "about": ["Whitelist-режим мобильного интернета", "Обход белых списков", "VLESS Reality"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Noir VPN", "item": "https://noirvpn.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Белые списки", "item": "https://noirvpn.org/belye-spiski/" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="art-top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Noir VPN">noir<span class="dot">.</span><span class="vpn">VPN</span></a>
+    <div class="nav-cta">
+      <span class="nav-status"><span class="live"></span>все ноды в норме</span>
+      <a class="btn btn-primary" href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">Открыть в Telegram</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<article class="art">
+
+  <p class="crumbs"><a href="/">Noir VPN</a> · Белые списки</p>
+
+  <h1>Белые списки: как понять, что интернет в whitelist-режиме, и почему VPN там отваливается</h1>
+
+  <p class="stand">Когда мобильный интернет «есть, но ничего не грузится», а Госуслуги и банк при этом
+  открываются, дело обычно не в сети и не в вашем VPN. Оператор перевёл трафик в режим белых списков.
+  Ниже: как это проверить за минуту, почему в этом режиме отваливаются почти все VPN, и что нужно,
+  чтобы соединение всё-таки прошло.</p>
+
+  <p class="meta">30 июля 2026 · команда Noir</p>
+
+  <h2>Что такое режим белых списков</h2>
+
+  <p>Привычная блокировка работает как чёрный список: разрешено всё, кроме перечисленного. Режим белых
+  списков переворачивает логику. Запрещено всё, кроме перечисленного, и фильтр стоит на уровне IP-адресов,
+  до всякого разбора содержимого пакета. Ваш телефон отправляет запрос, а он просто не выходит из сети
+  оператора.</p>
+
+  <p>Три свойства этого режима, которые важны на практике:</p>
+
+  <ul>
+    <li><b>Фильтр работает по блокам /24, а не по отдельным адресам.</b> Если блок разрешён, доступен
+    любой адрес внутри него. Поэтому вопрос всегда «какой блок», а не «какой сервер».</li>
+    <li><b>Режим не федеральный и не постоянный.</b> В Москве это эпизоды порядка нескольких часов,
+    в Петербурге редко, в большинстве регионов близко к постоянному. Различия доходят до отдельных вышек.</li>
+    <li><b>Списки у операторов разные.</b> Адрес, который проходит через МегаФон, у другого оператора
+    может быть закрыт. Единого «федерального белого списка», по которому можно всё посчитать заранее,
+    не существует.</li>
+  </ul>
+
+  <h2>Как проверить за минуту</h2>
+
+  <p>Симптом, по которому режим узнаётся без всяких инструментов: обычные сайты и мессенджеры не
+  открываются, а Госуслуги, банковское приложение и сайты операторов работают нормально. Если хочется
+  убедиться точно, есть две быстрые проверки.</p>
+
+  <ol>
+    <li><b>Пинг живёт, DNS нет.</b> <code>ping 8.8.8.8</code> проходит, а <code>nslookup ya.ru 8.8.8.8</code>
+    отваливается по таймауту. В этом режиме внешние DNS-резолверы недоступны целиком, работает только
+    резолвер оператора.</li>
+    <li><b>Wi-Fi работает, мобильный интернет нет.</b> Ограничение живёт в мобильной сети. Если по Wi-Fi
+    всё в порядке, а через оператора половина интернета исчезла, это оно.</li>
+  </ol>
+
+  <h2>Почему обычный VPN в этом режиме отваливается</h2>
+
+  <p>Не потому что «VPN распознали». Причины куда прозаичнее.</p>
+
+  <h3>UDP мёртв целиком</h3>
+
+  <p>Не «QUIC подрезали», а весь UDP: и DNS на 53 порту, и QUIC, и WireGuard на 51820. Всё, что построено
+  на UDP-транспорте, в режиме белых списков не поедет в принципе. Это сразу вычёркивает WireGuard и
+  большинство сервисов, которые на нём стоят, включая почти все «быстрые» приложения из App Store.</p>
+
+  <h3>Остаётся очень узкий набор</h3>
+
+  <p>Через белый адрес живут ICMP, TCP на портах 80 и 443, и обычно TCP 22. Практически это значит:
+  транспорт может быть только TCP и только на этих портах. Всё остальное можно даже не настраивать.</p>
+
+  <h3>Прятать SNI бессмысленно</h3>
+
+  <p>ECH и другие способы скрыть имя домена в рукопожатии TLS здесь не помогают: блокировка стоит на
+  уровне IP, пакет не доходит до той точки, где имя домена вообще имело бы значение. Маскировка нужна,
+  но не от этого фильтра, а от обычного DPI, который никуда не делся и работает параллельно.</p>
+
+  <h2>Что в этом режиме всё-таки работает</h2>
+
+  <p>Три условия одновременно.</p>
+
+  <ol>
+    <li><b>Точка входа в разрешённом блоке.</b> Либо сервер стоит в белом /24, либо трафик заходит через
+    инфраструктуру, которая в белом списке уже есть.</li>
+    <li><b>TCP на 443 и протокол, неотличимый от обычного HTTPS.</b> Здесь работает Reality: соединение
+    выглядит как настоящее TLS-рукопожатие с настоящим сайтом, ему не нужен отдельный домен-прокладка,
+    и блокировать его «по типу трафика» нечем.</li>
+    <li><b>Много вариантов, а не один.</b> Это ключевое и это то, о чём обычно молчат. Списки у операторов
+    разные, они меняются, конкретный проход перестаёт работать без предупреждения. Один найденный вход
+    это не решение, это временное везение.</li>
+  </ol>
+
+  <h2>Отдельно про готовые списки белых подсетей</h2>
+
+  <p>Если вы решите проверить свой сервер сами, первым делом найдётся готовый список белых подсетей:
+  такие выгрузки лежат на GitHub, их форкают и на них строят чекеры. Мы такой чекер тоже собрали:
+  два открытых репозитория, после разворачивания 141 664 подсети /24.</p>
+
+  <p>Потом мы сверили его с эмпирическим замером (masscan по всем российским префиксам через симку
+  в этом самом режиме) и получили неприятную картину.</p>
+
+  <table>
+    <thead><tr><th>метрика</th><th>значение</th></tr></thead>
+    <tbody>
+      <tr><td>наших блоков /24 внутри области замера</td><td>16 311</td></tr>
+      <tr><td>замер подтвердил белыми</td><td><b>2 743</b></td></tr>
+      <tr><td>белых блоков, которых в списке не было вообще</td><td><b>10 865</b></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p>Готовый список ошибался в обе стороны: часть «белых» блоков в реальности не работала, и, что важнее,
+    он не знал про 10 865 блоков, которые через базовую станцию отвечали. Проверка симкой в нужном регионе
+    занимает пять минут и стоит дороже любого чужого списка.</p>
+  </div>
+
+  <p class="note">Оговорка, без которой цифры врут: «замер не подтвердил» не равно «блок закрыт». Скан
+  видит только те блоки, где на 443 порту кто-то отвечает. В блоке без публичных сервисов отвечать
+  некому, и он честно попадёт в неподтверждённые, оставаясь разрешённым.</p>
+
+  <h2>Что из этого делаем мы</h2>
+
+  <p>Noir держит 36 вариантов прохода в режиме белых списков, а не один. Когда конкретный вариант
+  перестаёт работать, бот выдаёт следующий, и соединение не теряется. Это не магия и не «мы обошли
+  фильтр»: это перебор известных проходов, поддерживаемый вручную, плюс мониторинг того, какие из них
+  живы сегодня.</p>
+
+  <p>Честно про рамки: обходной трафик считается отдельно от обычного. В подписке на него 50 ГБ в месяц,
+  на пробном периоде 8 ГБ. Причина простая: проходы стоят дороже обычного канала, и безлимит на них
+  сделал бы тариф в разы дороже для всех, включая тех, у кого белые списки не включаются никогда.</p>
+
+  <div class="end">
+    <h2>Проверить на своей сети</h2>
+    <p>7 дней бесплатно, без карты и без привязки. Если у вашего оператора включается этот режим, это
+    единственный способ узнать, проходит ли Noir именно у вас.</p>
+    <a class="btn btn-primary btn-lg" href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">Забрать 7 дней бесплатно</a>
+    <p class="note" style="margin-top:16px">Статус нод и инциденты мы пишем в открытый канал
+    <a href="https://t.me/noirvpn_status" target="_blank" rel="noopener">@noirvpn_status</a>.</p>
+  </div>
+
+</article>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="/">noir<span class="dot">.</span><span class="vpn">VPN</span></a>
+        <p>VPN с протоколом Reality и 36 вариантами обхода белых списков. Работает там, где другие отваливаются.</p>
+        <div class="tag">Тихий трафик.</div>
+      </div>
+      <div class="foot-col">
+        <h4>Продукт</h4>
+        <a href="/#how">Как работает</a>
+        <a href="/#features">Возможности</a>
+        <a href="/#locations">Локации</a>
+        <a href="/#pricing">Тариф</a>
+      </div>
+      <div class="foot-col">
+        <h4>Telegram</h4>
+        <a href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">Бот @NoirVPN_bot</a>
+        <a href="https://t.me/noirvpn_status" target="_blank" rel="noopener">Канал @noirvpn_status</a>
+        <a href="https://t.me/HelpNoir_bot" target="_blank" rel="noopener">Поддержка @HelpNoir_bot</a>
+      </div>
+      <div class="foot-col">
+        <h4>Материалы</h4>
+        <a href="/belye-spiski/">Белые списки</a>
+        <a href="/#compare">Сравнение</a>
+        <a href="/#faq">Частые вопросы</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="cp">© 2026 Noir · noirvpn.org</span>
+      <div class="legal">
+        <a href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">Telegram</a>
+        <a href="/">На главную</a>
+      </div>
+    </div>
+    <p class="foot-disc">Noir не предоставляет анонимность и не предназначен для противоправных действий.
+    Сервис обеспечивает шифрование трафика и доступ к интернет-ресурсам. «До 300 Мбит/с» означает
+    пропускную способность канала ноды, а не гарантированный минимум на всём маршруте.</p>
+  </div>
+</footer>
+
+</body>
+</html>
