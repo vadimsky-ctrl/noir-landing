@@ -47,6 +47,45 @@
   window.addEventListener('scroll', toggleMcta, { passive: true });
   window.addEventListener('resize', toggleMcta);
 
+  // ---- выбор пути под единственным CTA ----
+  // Кнопок «Попробовать VPN» на странице несколько (шапка, герой, тариф,
+  // финал, плавающая), но ведут они в одно место: шторку с двумя дверями.
+  var pick = document.getElementById('pick');
+  var pickScrim = document.getElementById('pick-scrim');
+  var pickClose = document.getElementById('pick-close');
+  function setPick(open) {
+    if (!pick || !pickScrim) return;
+    if (open) {
+      pick.hidden = false;
+      pickScrim.hidden = false;
+      // Кадр на применение hidden: без него анимация не проигрывается.
+      requestAnimationFrame(function () {
+        pick.classList.add('open');
+        pickScrim.classList.add('open');
+      });
+      document.body.style.overflow = 'hidden';
+      if (drawer.classList.contains('open')) setDrawer(false);
+    } else {
+      pick.classList.remove('open');
+      pickScrim.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(function () {
+        if (!pick.classList.contains('open')) { pick.hidden = true; pickScrim.hidden = true; }
+      }, 240);
+    }
+  }
+  document.querySelectorAll('[data-cta]').forEach(function (btn) {
+    btn.addEventListener('click', function (event) {
+      event.preventDefault();
+      setPick(true);
+    });
+  });
+  if (pickScrim) pickScrim.addEventListener('click', function () { setPick(false); });
+  if (pickClose) pickClose.addEventListener('click', function () { setPick(false); });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && pick && pick.classList.contains('open')) setPick(false);
+  });
+
   // ---- FAQ accordion ----
   document.querySelectorAll('.faq-item').forEach(function (item) {
     var q = item.querySelector('.faq-q');
