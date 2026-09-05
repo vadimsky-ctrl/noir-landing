@@ -1,4 +1,4 @@
-/* Noir VPN landing — interactions: nav state, mobile drawer, FAQ accordion, scroll reveal */
+/* Noir VPN landing. Interactions: nav state, mobile drawer, FAQ accordion, scroll reveal */
 (function () {
   'use strict';
 

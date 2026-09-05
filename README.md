@@ -1,7 +1,7 @@
-noir. landing — static. https://noirvpn.org
+noir. landing (static). https://noirvpn.org
 
 Перед каждым пушем, который меняет любую страницу: `./scripts/gen-sitemap.sh`,
 затем добавить `sitemap.xml` в тот же коммит. Скрипт ставит `lastmod` = дата
-запуска по MSK на все URL — GitHub Pages всё равно отдаёт один и тот же
+запуска по MSK на все URL: GitHub Pages всё равно отдаёт один и тот же
 `Last-Modified` для всего сайта по дате последнего коммита в main, так что
 ручной/замороженный `lastmod` расходится с прод-заголовком уже на следующий день.
