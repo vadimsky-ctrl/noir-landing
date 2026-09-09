@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" data-accent="red">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Noir VPN: the VPN that doesn't drop</title>
+<meta name="description" content="Noir VPN: the Reality protocol and 36 bypass routes for whitelist-only mobile internet. Built for people inside Russia, works on every carrier and through shutdowns. Nodes in Germany, the Netherlands and the US. 7 days free, no card." />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<link rel="canonical" href="https://noirvpn.org/en/" />
+<link rel="alternate" hreflang="ru" href="https://noirvpn.org/" />
+<link rel="alternate" hreflang="en" href="https://noirvpn.org/en/" />
+<link rel="alternate" hreflang="x-default" href="https://noirvpn.org/" />
+<meta name="theme-color" content="#0B0B0C" />
+
+<!-- Счётчик посещаемости: свой, на s.noirvpn.org. Данные лежат у нас, а не
+     у Яндекса, и путь /n.js не режется фильтрами блокировщиков. -->
+<script defer src="https://s.noirvpn.org/n.js" data-website-id="624a66b9-528b-448a-b180-92ef67c8d1b8"></script>
+
+<!-- Open Graph / Telegram / соцсети -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Noir VPN" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:url" content="https://noirvpn.org/en/" />
+<meta property="og:title" content="Noir VPN: the VPN that doesn't drop" />
+<meta property="og:description" content="The Reality protocol and 36 bypass routes for whitelist-only mobile internet. Built for people inside Russia. 7 days free, no card." />
+<meta property="og:image" content="https://noirvpn.org/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Noir VPN: the VPN that doesn't drop" />
+<meta name="twitter:description" content="Reality and 36 whitelist bypass routes. Built for people inside Russia. 7 days free, no card." />
+<meta name="twitter:image" content="https://noirvpn.org/og.png" />
+
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/icon-180.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/noir-landing.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://noirvpn.org/#org",
+      "name": "Noir VPN",
+      "alternateName": "Noir",
+      "url": "https://noirvpn.org/",
+      "logo": "https://noirvpn.org/icon-180.png",
+      "slogan": "Quiet Traffic.",
+      "description": "A VPN service for people inside Russia: the Reality protocol, 36 bypass routes for whitelist-only mobile internet, nodes in Germany, the Netherlands and the US. Sign-up and payment through a Telegram bot.",
+      "sameAs": [
+        "https://t.me/NoirVPN_bot",
+        "https://t.me/noirvpn_status"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "url": "https://t.me/HelpNoir_bot",
+        "availableLanguage": ["ru", "en"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://noirvpn.org/en/#site",
+      "url": "https://noirvpn.org/en/",
+      "name": "Noir VPN",
+      "inLanguage": "en",
+      "dateModified": "2026-09-09",
+      "publisher": { "@id": "https://noirvpn.org/#org" }
+    },
+    {
+      "@type": "Product",
+      "name": "Noir VPN",
+      "description": "A VPN subscription with the Reality protocol and bypass for whitelist-only mobile internet. Unlimited data, 5 devices, 50 GB of whitelist bypass per month, nodes in Germany, the Netherlands and the US.",
+      "brand": { "@id": "https://noirvpn.org/#org" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "249",
+        "highPrice": "1690",
+        "priceCurrency": "RUB",
+        "offerCount": "4",
+        "availability": "https://schema.org/InStock",
+        "url": "https://t.me/NoirVPN_bot"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is whitelist bypass?",
+          "acceptedAnswer": { "@type": "Answer", "text": "During shutdowns, Russian carriers switch mobile internet into whitelist-only mode: a short list of approved addresses stays reachable and everything else, ordinary VPNs included, simply does not open. Noir disguises its traffic so it passes in that mode too. The bot currently ships 36 bypass routes, working in every region and on every carrier. We wrote up how to test the mode yourself, and why WireGuard dies in it, separately: whitelist mode." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why doesn't it drop the way other services do?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We run nodes in three countries, monitor them around the clock and replace blocked IPs. The Happ client switches to a working node on its own via urltest, so you do nothing." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it anonymous?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The honest answer: full anonymity does not exist. We encrypt your traffic and we do not sell data, but we will not promise something that is technically impossible. If a service guarantees you 100% anonymity, that is marketing." }
+        },
+        {
+          "@type": "Question",
+          "name": "Will Russian banks and services still work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Russian services go straight out through split tunneling even while the VPN is on, so banks, Gosuslugi (the government services portal) and marketplaces like Wildberries and Ozon never see a foreign IP." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I connect?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Open @NoirVPN_bot, claim the 7 free days and press Connect. Happ opens by itself and imports the subscription. The whole thing takes about 30 seconds." }
+        },
+        {
+          "@type": "Question",
+          "name": "What does it cost, and do I need a card?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The 7-day trial is free and needs no card, with a 30 GB data cap and 8 GB of whitelist bypass. After that there is a single plan: ₽249 per month, ₽599 for 3 months, ₽999 for 6 and ₽1,690 for a year, which works out to ₽141 per month on the longest term (roughly $3 down to $1.70). The subscription includes 50 GB of bypass per month and you can top that up. Payment by Russian bank card, SBP or crypto." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I pay from outside Russia?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Crypto works from anywhere. Cards do not: Visa and Mastercard stopped working with Russian acquirers in 2022, and SBP is domestic only. Noir is built for people inside Russia, so that is the payment reality we work with today." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which devices does it run on?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Anything that runs Happ: iPhone and iPad, Android, Windows, macOS, Android TV. One subscription covers 5 devices at once, with no per-device licence." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is Reality better than WireGuard or OpenVPN?",
+          "acceptedAnswer": { "@type": "Answer", "text": "WireGuard and OpenVPN are recognisable by their packet signature: DPI sees a VPN and cuts the whole thing. Reality instead poses as an ordinary TLS connection to a real website and needs no front domain, so there is no traffic type left to block. That is why Reality and VLESS survive in Russia while WireGuard services are the first to go." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work during a mobile internet shutdown?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, that is exactly what the 36 bypass routes are for. In a shutdown the carrier leaves only approved addresses reachable, and Noir gets through in that mode as well. Wi-Fi is unaffected: the restriction applies to the mobile network only." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Noir VPN">noir<span class="dot">.</span><span class="vpn">VPN</span></a>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#locations">Locations</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <span class="nav-status"><span class="live"></span>all nodes healthy</span>
+      <div class="lang" role="group" aria-label="Язык / Language">
+        <a href="/" hreflang="ru" lang="ru" data-lang-to="ru">RU</a>
+        <span class="lang-on" aria-current="true">EN</span>
+      </div>
+      <button class="btn btn-primary" type="button" data-cta>Try Noir free</button>
+      <button class="nav-burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+<nav class="drawer" id="drawer">
+  <a href="#how">How it works</a>
+  <a href="#features">Features</a>
+  <a href="#locations">Locations</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#faq">FAQ</a>
+  <button class="btn btn-primary" type="button" data-cta>Try Noir free</button>
+  <div class="lang drawer-lang" role="group" aria-label="Язык / Language">
+    <a href="/" hreflang="ru" lang="ru" data-lang-to="ru">RU</a>
+    <span class="lang-on" aria-current="true">EN</span>
+  </div>
+</nav>
+
+<span id="top"></span>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="hero-atmos">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow left"></div>
+  </div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">Reality · 36 whitelist bypass routes</span>
+      <h1>The VPN that <em>doesn't&nbsp;drop</em></h1>
+      <p class="hero-sub">Built for people inside Russia. The Reality protocol and 36 bypass routes for whitelist-only mobile internet: every carrier, every region. No card, connected in Happ in&nbsp;30&nbsp;seconds.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary btn-lg" type="button" data-cta>Try Noir free</button>
+        <a class="btn btn-ghost btn-lg" href="#how">How it works</a>
+      </div>
+
+      <div class="hero-trust">
+        <span>Unlimited data</span>
+        <span>5 devices</span>
+        <span>up to 300 Mbps</span>
+        <span>3 locations: DE · NL · US</span>
+      </div>
+      <p class="hero-note">7-day trial · 8 GB of whitelist bypass · no commitment</p>
+    </div>
+
+    <!-- phone / Telegram bot mock -->
+    <div class="device-col">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="tg-head">
+            <span class="tg-ava"><span class="arrow-n" style="--s:30px"><span class="gn">n</span><svg class="streak" viewBox="0 0 240 230" fill="none" stroke-linecap="round"><path d="M-6 168 L96 70" stroke="var(--accent)" stroke-width="6" opacity=".5"/><path d="M2 196 L120 78" stroke="var(--accent)" stroke-width="5" opacity=".34"/><path d="M22 216 L142 96" stroke="var(--accent)" stroke-width="4" opacity=".22"/></svg><svg class="arrow" viewBox="0 0 240 230" fill="none" stroke="var(--accent)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"><path d="M66 178 L182 58"/><path d="M138 58 L182 58 L182 104"/></svg></span></span>
+            <div class="meta">
+              <div class="nm">Noir VPN
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#54a9eb"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="st">bot · replies instantly</div>
+            </div>
+          </div>
+          <div class="tg-body">
+            <div class="tg-cover"><img src="/assets/cat-welcome-en.jpg" alt="Noir bot cover: a cat in a noir hoodie." /></div>
+            <div class="tg-bubble">
+              Hi. This is <b>Noir</b>.<br/>
+              A VPN with Reality and 36 whitelist bypass routes. It works where others drop.<br/>
+              <span class="mono">7 days · 8 GB bypass · 5 devices · no card</span>
+              <div class="tg-time">13:47</div>
+            </div>
+            <div class="tg-btn">
+              <div class="tg-key">
+                <svg class="k" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                Connect in Happ
+              </div>
+              <div class="tg-key sec">I don't have Happ</div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-status"><span class="live"></span>connected · DE · 142 Mbps</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FACT BAND ============================ -->
+<div class="band">
+  <div class="wrap band-inner">
+    <div class="band-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg>
+      <span>Reality <span class="mono">XTLS-Vision</span></span>
+    </div>
+    <div class="band-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+      <span>3 locations · 24/7 monitoring · IP rotation</span>
+    </div>
+    <div class="band-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 12l2 2 4-4"/></svg>
+      <span><span class="mono">Happ</span> client · 30 seconds</span>
+    </div>
+    <div class="band-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
+      <span>Public status channel <span class="mono">@noirvpn_status</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ PROBLEM ============================ -->
+<section class="section problem">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Sound familiar?</span>
+      <h2 class="title">The market's real problem: VPNs that go silent exactly when you need them</h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain reveal">
+        <div class="ix">01</div>
+        <h3>Drops for no reason</h3>
+        <p>An IP gets blocked and you sit without a connection until somebody fixes it. Usually nobody does.</p>
+      </div>
+      <div class="pain reveal">
+        <div class="ix">02</div>
+        <h3>Dead during shutdowns</h3>
+        <p>Mobile internet switches to whitelist-only mode, and an ordinary VPN stops opening altogether.</p>
+      </div>
+      <div class="pain reveal">
+        <div class="ix">03</div>
+        <h3>Promises nobody can keep</h3>
+        <p>"100% anonymous", "we log nothing": marketing you cannot verify a single line of.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ============================ HOW IT WORKS ============================ -->
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2 class="title">Three taps in Telegram and you're online</h2>
+      <p class="lead">No web sign-up forms, no account questionnaires. Everything happens in the bot and in the Happ app.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">1</div>
+        <h3>Claim the trial</h3>
+        <p>Open <span class="accent">@NoirVPN_bot</span> and press "7 days free". 8 GB of whitelist bypass, 5 devices, no card.</p>
+        <div class="tag">/start → /trial</div>
+      </div>
+      <div class="step reveal">
+        <div class="num">2</div>
+        <h3>Open it in Happ</h3>
+        <p>One "Connect" button: Happ opens by itself and imports the subscription. Nothing to pick from a list.</p>
+        <div class="tag">happ:// · auto-import</div>
+      </div>
+      <div class="step reveal">
+        <div class="num">3</div>
+        <h3>Connected</h3>
+        <p>Happ picks a working node and holds the connection. IP blocked? It switches without asking you.</p>
+        <div class="tag">urltest · auto-failover</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ============================ FEATURES ============================ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Features</span>
+      <h2 class="title">Built to hold the connection</h2>
+      <p class="lead">One priority: staying up. Everything else serves the same goal, that the channel does not fall over and keeps working where the rest give up.</p>
+    </div>
+    <div class="feat-grid reveal">
+      <div class="feat">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>The Reality protocol</h3>
+        <p>VLESS + Reality + Vision on Xray-core. The traffic is indistinguishable from ordinary TLS to a real website, so there is no signature left to block.</p>
+        <div class="more">XTLS-Vision · no front domain</div>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12h6m4 0h6M4 7h16M4 17h16"/><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Whitelist bypass</h3>
+        <p>36 bypass routes for whitelist-only mode, when a carrier leaves just a handful of approved addresses reachable. They work in every region and on every carrier.</p>
+        <div class="more">36 routes · every carrier · every region</div>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+        <h3>It stays up</h3>
+        <p>Multiple layers, fast IP rotation and round-the-clock monitoring. Node blocked? We swap it in minutes and you never notice.</p>
+        <div class="more">auto-failover · monitoring</div>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+        <h3>Unlimited and fast</h3>
+        <p>No data cap, up to 300 Mbps on the node's channel. YouTube in 4K without buffering, downloads without a ceiling.</p>
+        <div class="more">YouTube 4K · no shaping</div>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="2" width="9" height="15" rx="2"/><rect x="14" y="8" width="6" height="14" rx="2"/><path d="M9 4.5h1"/></svg></div>
+        <h3>5 devices</h3>
+        <p>Phone, laptop, tablet, TV: one subscription covers them all. Share it with the people close to you.</p>
+        <div class="more">iOS · Android · desktop · TV</div>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3v6a6 6 0 006 6 6 6 0 016 6v0M18 3v6a6 6 0 01-6 6"/><circle cx="6" cy="3" r="1.6" fill="currentColor" stroke="none"/><circle cx="18" cy="3" r="1.6" fill="currentColor" stroke="none"/><circle cx="18" cy="21" r="1.6" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Split tunneling</h3>
+        <p>Russian banks, Gosuslugi (the government services portal) and marketplaces like Wildberries and Ozon keep working with the VPN on: domestic traffic goes out directly.</p>
+        <div class="more">selective routing · RU direct</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ LOCATIONS ============================ -->
+<section class="section locations" id="locations">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Locations</span>
+      <h2 class="title">Three locations. And 36 whitelist bypass routes.</h2>
+      <p class="lead">Germany, the Netherlands, the United States. Not a hundred countries on paper, but three routes we actually watch.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc reveal">
+        <div class="loc-top">
+          <span class="loc-flag"><img src="/assets/flag-de.webp" alt="Germany" /></span>
+          <div><div class="nm">Germany <span class="nx">primary</span></div><div class="code">noir-de · Frankfurt</div></div>
+        </div>
+        <div class="loc-meta">
+          <span class="stat">ping from Moscow <b>~40 ms</b></span>
+          <span class="loc-status"><span class="live"></span>healthy</span>
+        </div>
+      </div>
+      <div class="loc reveal">
+        <div class="loc-top">
+          <span class="loc-flag"><img src="/assets/flag-nl.png" alt="Netherlands" /></span>
+          <div><div class="nm">Netherlands <span class="nx">backup</span></div><div class="code">noir-nl · Rotterdam</div></div>
+        </div>
+        <div class="loc-meta">
+          <span class="stat">ping from Moscow <b>~49 ms</b></span>
+          <span class="loc-status"><span class="live"></span>healthy</span>
+        </div>
+      </div>
+      <div class="loc reveal">
+        <div class="loc-top">
+          <span class="loc-flag"><img src="/assets/flag-us.webp" alt="United States" /></span>
+          <div><div class="nm">United States <span class="nx">for US-only services</span></div><div class="code">noir-us · Dallas</div></div>
+        </div>
+        <div class="loc-meta">
+          <span class="stat">ping from Moscow <b>~153 ms</b></span>
+          <span class="loc-status"><span class="live"></span>healthy</span>
+        </div>
+      </div>
+    </div>
+    <div class="bypass reveal">
+      <img class="bypass-img" src="/assets/cat-paws.jpg" alt="" loading="lazy" />
+      <div class="bypass-body">
+        <div class="bypass-num">36</div>
+        <div class="bypass-txt">
+          <h3>whitelist bypass routes</h3>
+          <p>They work in every region and on every carrier. If one route gets shut, the bot hands you the next one and the connection holds.</p>
+          <div class="bypass-tag">wl-01 … wl-36 · every carrier · every region</div>
+        </div>
+      </div>
+    </div>
+    <p class="loc-foot reveal">Happ picks the fast node itself via <span class="accent">urltest</span>. There is nothing for you to switch by hand.</p>
+  </div>
+</section>
+
+<!-- ============================ COMPARISON ============================ -->
+<section class="section compare" id="compare">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Comparison</span>
+      <h2 class="title">Not all VPN bots are the same</h2>
+      <p class="lead">The convenience of a Telegram bot, but with a current protocol, automatic node failover and routing built for Russia. The things you normally get from neither the mass-market bots nor the foreign services.</p>
+    </div>
+    <div class="reveal" style="overflow-x:auto">
+      <table class="ctable">
+        <thead>
+          <tr>
+            <th class="feat-name"></th>
+            <th class="us col-us-head"><span class="us-brand">noir<span class="dot">.</span></span></th>
+            <th>A VPN bot in Telegram</th>
+            <th>A foreign VPN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feat-name">Protocol</td>
+            <td class="us" data-th="Noir"><span class="ok">Reality</span> · XTLS-Vision</td>
+            <td data-th="VPN bot">Often Shadowsocks / VLESS without Reality</td>
+            <td data-th="Foreign VPN">WireGuard · OpenVPN</td>
+          </tr>
+          <tr>
+            <td class="feat-name">Disguised as ordinary TLS</td>
+            <td class="us" data-th="Noir"><span class="ok">Yes</span>, no front domain</td>
+            <td data-th="VPN bot">Rarely</td>
+            <td data-th="Foreign VPN"><span class="no">Detected by DPI</span></td>
+          </tr>
+          <tr>
+            <td class="feat-name">Works in whitelist-only mode</td>
+            <td class="us" data-th="Noir"><span class="ok">Yes</span>, 36 routes</td>
+            <td data-th="VPN bot">Hit or miss</td>
+            <td data-th="Foreign VPN"><span class="no">No</span></td>
+          </tr>
+          <tr>
+            <td class="feat-name">When a node's IP is blocked</td>
+            <td class="us" data-th="Noir">Auto-failover via urltest</td>
+            <td data-th="VPN bot">Swapped by hand, you wait</td>
+            <td data-th="Foreign VPN">You switch servers yourself</td>
+          </tr>
+          <tr>
+            <td class="feat-name">Russian banks and services</td>
+            <td class="us" data-th="Noir">Split tunneling, they go direct</td>
+            <td data-th="VPN bot">Usually all traffic in the tunnel</td>
+            <td data-th="Foreign VPN"><span class="no">A foreign IP breaks them</span></td>
+          </tr>
+          <tr>
+            <td class="feat-name">Setup</td>
+            <td class="us" data-th="Noir">1 button → auto-import into Happ</td>
+            <td data-th="VPN bot">Manual config import</td>
+            <td data-th="Foreign VPN">Own app, pick a server</td>
+          </tr>
+          <tr>
+            <td class="feat-name">Who is behind it</td>
+            <td class="us" data-th="Noir">Public channel · @noirvpn_status</td>
+            <td data-th="VPN bot">Usually an anonymous reseller</td>
+            <td data-th="Foreign VPN">A foreign company</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRICING ============================ -->
+<section class="section pricing" id="pricing">
+  <div class="pglow"></div>
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">Pricing</span>
+      <h2 class="title">One subscription. Everything included.</h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">No data bundles, no per-device fees. The longer the term, the cheaper the month.</p>
+    </div>
+    <div class="price-card reveal">
+      <span class="price-trial"><span style="width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block"></span>7 days free · 8 GB bypass · no card</span>
+      <div class="price-amount">
+        <span class="num">₽249</span>
+        <span class="per">/ mo</span>
+      </div>
+      <p class="price-sub">One Noir plan: unlimited data, 5 devices, every location and 50 GB of whitelist bypass per month (top-ups available). About $3 a month, dropping to ₽141 on the longest term, roughly $1.70.</p>
+      <div class="price-terms">
+        <div class="term"><b>1 mo</b><span class="pv">₽249</span><i>₽249/mo</i></div>
+        <div class="term"><b>3 mo</b><span class="pv">₽599</span><i>₽200/mo</i></div>
+        <div class="term"><b>6 mo</b><span class="pv">₽999</span><i>₽167/mo</i></div>
+        <div class="term best"><b>12 mo</b><span class="pv">₽1,690</span><i>₽141/mo · −43%</i></div>
+      </div>
+      <ul class="price-incl">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> Unlimited data</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> Up to 300 Mbps</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> 5 devices</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> 36 bypass routes · 50 GB/mo</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> 3 locations: DE · NL · US</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4 4 10-10"/></svg> Referral: +7 days for both</li>
+      </ul>
+      <div class="price-cta">
+        <button class="btn btn-primary btn-lg" type="button" data-cta>Get Noir</button>
+      </div>
+      <p class="price-foot">Payment by Russian bank card, SBP (Russia's instant payment system) or crypto, in the bot or on the site. Paying from abroad: crypto works, cards do not. Questions: @HelpNoir_bot.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">FAQ</span>
+      <h2 class="title">Frequently asked</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">What is whitelist bypass?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">During shutdowns, Russian carriers switch mobile internet into whitelist-only mode: a short list of approved addresses stays reachable and everything else, ordinary VPNs included, simply does not open. Noir disguises its traffic so it passes in that mode too. The bot currently ships 36 bypass routes, working in every region and on every carrier. We wrote up how to test the mode yourself, and why WireGuard dies in it, separately: <a href="/en/whitelists/">whitelist mode</a>.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Why doesn't it drop the way other services do?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">We run nodes in three countries, monitor them around the clock and replace blocked IPs. The Happ client switches to a working node on its own via <span class="mono">urltest</span>, so you do nothing.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is it anonymous?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">The honest answer: full anonymity does not exist. We encrypt your traffic and we do not sell data, but we will not promise something that is technically impossible. If a service guarantees you 100% anonymity, that is marketing.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Will Russian banks and services still work?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Russian services go straight out through split tunneling even while the VPN is on, so banks, Gosuslugi (the government services portal) and marketplaces like Wildberries and Ozon never see a foreign IP.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I connect?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Open <span class="mono">@NoirVPN_bot</span>, claim the 7 free days and press "Connect". Happ opens by itself and imports the subscription. The whole thing takes about 30 seconds.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What does it cost, and do I need a card?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">The 7-day trial is free and needs no card, with a 30 GB data cap and 8 GB of whitelist bypass. After that there is a single plan: ₽249 per month, ₽599 for 3 months, ₽999 for 6 and ₽1,690 for a year, which works out to ₽141 per month on the longest term (roughly $3 down to $1.70). The subscription includes 50 GB of bypass per month and you can top that up. Payment by Russian bank card, SBP or crypto; support at <span class="mono">@HelpNoir_bot</span> will help if something goes sideways.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I pay from outside Russia?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Crypto works from anywhere. Cards do not: Visa and Mastercard stopped working with Russian acquirers in 2022, and SBP is domestic only. Noir is built for people inside Russia, so that is the payment reality we work with today.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Which devices does it run on?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Anything that runs Happ: iPhone and iPad, Android, Windows, macOS, Android TV. One subscription covers 5 devices at once, with no per-device licence.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Why is Reality better than WireGuard or OpenVPN?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">WireGuard and OpenVPN are recognisable by their packet signature: DPI sees a VPN and cuts the whole thing. Reality instead poses as an ordinary TLS connection to a real website and needs no front domain, so there is no traffic type left to block. That is why Reality and VLESS survive in Russia while WireGuard services are the first to go.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does it work during a mobile internet shutdown?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes, that is exactly what the 36 bypass routes are for. In a shutdown the carrier leaves only approved addresses reachable, and Noir gets through in that mode as well. Wi-Fi is unaffected: the restriction applies to the mobile network only.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FINAL CTA ============================ -->
+<section class="section final">
+  <div class="final-bg"><img src="/assets/cat-lamp.jpg" alt="" loading="lazy" /></div>
+  <div class="fglow"></div>
+  <div class="wrap">
+    <h2 class="reveal">Quiet traffic.<br/>That never goes quiet.</h2>
+    <p class="reveal">Seven days on the house, on the site or in Telegram, whichever suits you. No forms, connected in 30 seconds.</p>
+    <div class="hero-cta reveal">
+      <button class="btn btn-primary btn-lg" type="button" data-cta>Try Noir free</button>
+    </div>
+    <p class="price-foot reveal" style="margin-top:18px">7 days · 8 GB bypass · 5 devices · no card</p>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top">noir<span class="dot">.</span><span class="vpn">VPN</span></a>
+        <p>A VPN with the Reality protocol and 36 whitelist bypass routes. It works where others drop.</p>
+        <div class="tag">Quiet Traffic.</div>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#locations">Locations</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div class="foot-col">
+        <h4>Telegram</h4>
+        <a href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">Bot @NoirVPN_bot</a>
+        <a href="https://id.heynoir.com/?from=lp&lang=en">Account</a>
+        <a href="https://t.me/noirvpn_status" target="_blank" rel="noopener">Channel @noirvpn_status</a>
+        <a href="https://t.me/HelpNoir_bot" target="_blank" rel="noopener">Support @HelpNoir_bot</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="/en/whitelists/">Whitelist mode</a>
+        <a href="#compare">Comparison</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="cp">© 2026 Noir · noirvpn.org</span>
+      <div class="legal">
+        <a href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">Telegram</a>
+        <a href="/">Русская версия</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+    <p class="foot-disc">Noir does not provide anonymity and is not intended for unlawful use. The service encrypts your traffic and provides access to internet resources. "Up to 300 Mbps" refers to the node's channel capacity, not a guaranteed minimum end to end.</p>
+  </div>
+</footer>
+
+<!-- ============================ ВЫБОР ПУТИ ============================ -->
+<div class="pick-scrim" id="pick-scrim" hidden></div>
+<div class="pick" id="pick" role="dialog" aria-modal="true" aria-labelledby="pick-title" hidden>
+  <button class="pick-x" id="pick-close" type="button" aria-label="Close">&times;</button>
+  <h3 id="pick-title">How would you like to connect?</h3>
+  <p class="pick-sub">Access, locations and speed are identical. The only difference is where you manage it.</p>
+
+  <a class="pick-opt primary" href="https://id.heynoir.com/?from=lp&lang=en">
+    <span class="pick-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg></span>
+    <span class="pick-tx">
+      <b>Sign up here, on the site</b>
+      <i>No Telegram needed. Email login, 7-day trial for ₽10</i>
+    </span>
+    <span class="pick-go">→</span>
+  </a>
+
+  <a class="pick-opt" href="https://t.me/NoirVPN_bot?start=lp" target="_blank" rel="noopener">
+    <span class="pick-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3c.3-1.3-.5-1.8-1.3-1.5L3.3 9.6c-1.2.5-1.2 1.1-.2 1.4l4.5 1.4 10.4-6.6c.5-.3.9-.1.6.2l-8.4 7.6-.3 4.6c.5 0 .7-.2.9-.4l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-13.9z"/></svg></span>
+    <span class="pick-tx">
+      <b>Open the Telegram bot</b>
+      <i>If Telegram already opens for you: 7 days free, no card</i>
+    </span>
+    <span class="pick-go">→</span>
+  </a>
+
+  <p class="pick-foot">Payment by Russian bank card, SBP or crypto. Questions: <a href="https://t.me/HelpNoir_bot" target="_blank" rel="noopener">@HelpNoir_bot</a>.</p>
+</div>
+
+<!-- ============================ STICKY MOBILE CTA ============================ -->
+<button class="mcta" id="mcta" type="button" data-cta aria-label="Try Noir">
+  <span class="ic">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+  </span>
+  <span class="tx">
+    <b>Try Noir free</b>
+    <i>on the site or in Telegram</i>
+  </span>
+  <span class="go">Start</span>
+</button>
+
+<script src="/noir-landing.js"></script>
+<script src="/noir-analytics.js"></script>
+</body>
+</html>

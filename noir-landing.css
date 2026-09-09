@@ -692,3 +692,52 @@ h2.title{
         border-radius:22px 22px 0 0;padding:26px 20px calc(22px + env(safe-area-inset-bottom));}
   .pick.open{transform:translateY(0);}
 }
+
+/* ============================================================
+   ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА RU/EN
+   Активный язык — <span>, второй — обычная <a>. Работает без JS.
+   ============================================================ */
+.lang{
+  display:inline-flex;align-items:center;flex:0 0 auto;
+  border:1px solid var(--border);border-radius:9px;overflow:hidden;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:0.04em;
+  background:rgba(244,244,245,0.03);
+}
+.lang > *{
+  display:block;padding:6px 9px;line-height:1;color:var(--muted);
+  transition:color .18s,background .18s;
+}
+.lang a:hover{color:var(--text);background:rgba(244,244,245,0.07);}
+.lang .lang-on{color:var(--text);background:rgba(244,244,245,0.09);cursor:default;}
+.drawer-lang{align-self:flex-start;margin-top:20px;}
+
+/* ---- предложение сменить язык. Никогда не редиректит само ---- */
+.langbar{
+  position:fixed;z-index:70;left:18px;bottom:18px;max-width:min(92vw,340px);
+  display:none;gap:12px;align-items:flex-start;
+  padding:14px 14px 14px 16px;border-radius:14px;
+  background:var(--bg-2);border:1px solid var(--border);
+  box-shadow:0 18px 44px rgba(0,0,0,0.5);
+  opacity:0;transform:translateY(10px);transition:opacity .28s var(--ease),transform .28s var(--ease);
+}
+.langbar.show{display:flex;}
+.langbar.in{opacity:1;transform:translateY(0);}
+.langbar-tx{font-size:14px;line-height:1.45;color:var(--text);}
+.langbar-tx b{display:block;font-weight:600;margin-bottom:2px;}
+.langbar-tx i{font-style:normal;color:var(--muted);font-size:12.5px;}
+.langbar-go{
+  margin-top:10px;display:inline-block;padding:7px 13px;border-radius:9px;
+  background:var(--accent);color:#fff;font-size:13px;font-weight:600;
+}
+.langbar-go:hover{filter:brightness(1.08);}
+.langbar-x{
+  flex:0 0 auto;width:26px;height:26px;border-radius:8px;margin:-2px -2px 0 0;
+  color:var(--muted);font-size:19px;line-height:1;
+  background:transparent;border:0;cursor:pointer;transition:color .18s,background .18s;
+}
+.langbar-x:hover{color:var(--text);background:rgba(244,244,245,0.07);}
+
+@media (max-width:860px){
+  /* внизу живёт липкая кнопка CTA, поэтому на телефоне уводим плашку наверх */
+  .langbar{left:12px;right:12px;bottom:auto;top:74px;max-width:none;}
+}

@@ -24,7 +24,11 @@
   // Метка страницы: с какой из них человек ушёл в бота. Индекс это `lp`,
   // разбор белых списков `lpb`: эти две страницы продают по-разному, и мешать
   // их в одну строку значит потерять ровно то, ради чего вторая написана.
-  var page = /belye-spiski/.test(location.pathname) ? 'lpb' : 'lp';
+  // Английские версии несут префикс `en-`. Разделять надо с самого запуска:
+  // задним числом RU и EN из одной строки уже не расцепить.
+  var isEn = /^\/en(\/|$)/.test(location.pathname);
+  var article = /(belye-spiski|whitelists)/.test(location.pathname);
+  var page = (isEn ? 'en-' : '') + (article ? 'lpb' : 'lp');
 
   function clean(value) {
     return String(value || '')

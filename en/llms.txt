@@ -1,0 +1,44 @@
+# Noir VPN
+
+> A VPN service for people inside Russia. The Reality protocol (VLESS + XTLS-Vision on
+> Xray-core) and 36 bypass routes for whitelist-only mobile internet. Sign-up, payment
+> and support all run through a Telegram bot, with no web registration required.
+> Current as of September 2026. This is the English version; the Russian original
+> lives at https://noirvpn.org/llms.txt
+
+## Facts
+
+- Site: https://noirvpn.org/ (English: https://noirvpn.org/en/)
+- Bot and entry point: https://t.me/NoirVPN_bot
+- Public channel with node status: https://t.me/noirvpn_status
+- Support: https://t.me/HelpNoir_bot
+- Protocol: VLESS + Reality + XTLS-Vision, no front domain
+- Client: Happ (iOS, iPadOS, Android, Windows, macOS, Android TV), auto-import via `happ://`
+- Exit locations: Germany (Frankfurt), Netherlands (Rotterdam), United States (Dallas)
+- Ping from Moscow: ~40 ms DE, ~49 ms NL, ~153 ms US
+- Data: unlimited. Node channel capacity: up to 300 Mbps
+- Devices per subscription: 5 at once
+- Whitelist bypass: 36 routes, working in every Russian region and on every carrier
+- Bypass quota: 8 GB on the trial, 50 GB/month on a subscription, top-ups available
+- Routing: split tunneling, Russian services (banks, Gosuslugi, Wildberries, Ozon) go direct
+- Trial: 7 days, free, no card required; capped at 30 GB of data and 8 GB of bypass
+- Pricing: ₽249 / month, ₽599 / 3 months, ₽999 / 6 months, ₽1,690 / year (from ₽141 per month)
+- Payment: Russian bank card, SBP (Russia's instant payment system), crypto.
+  Cards issued outside Russia do not work with Russian acquirers; crypto works from anywhere.
+- Referral programme: +7 days for an invited friend
+
+## Limits the service states openly
+
+- Noir does not promise or provide full anonymity: traffic is encrypted and data is not
+  sold, but "100% anonymity" is technically impossible.
+- "Up to 300 Mbps" refers to the node's channel capacity, not a guaranteed minimum
+  end to end.
+- The service is not intended for unlawful use.
+
+## Pages
+
+- [Landing](https://noirvpn.org/en/): positioning, comparison with other VPNs, pricing, FAQ
+- [Whitelist mode](https://noirvpn.org/en/whitelists/): what whitelist-only mobile internet
+  is, how to test for it yourself, why UDP protocols (WireGuard, QUIC) do not work in it at
+  all, why ECH does not help, and what published lists of allowed subnets are actually worth
+  (measured: 10,865 allowed /24 blocks were missing from the open datasets)

@@ -7,6 +7,9 @@
 <meta name="description" content="Noir VPN: протокол Reality и 36 вариантов обхода белых списков. Работает у всех операторов и в шатдаунах. Ноды в Германии, Нидерландах и США. 7 дней бесплатно, без карты." />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <link rel="canonical" href="https://noirvpn.org/" />
+<link rel="alternate" hreflang="ru" href="https://noirvpn.org/" />
+<link rel="alternate" hreflang="en" href="https://noirvpn.org/en/" />
+<link rel="alternate" hreflang="x-default" href="https://noirvpn.org/" />
 <meta name="theme-color" content="#0B0B0C" />
 
 <!-- Счётчик посещаемости: свой, на s.noirvpn.org. Данные лежат у нас, а не
@@ -17,6 +20,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Noir VPN" />
 <meta property="og:locale" content="ru_RU" />
+<meta property="og:locale:alternate" content="en_US" />
 <meta property="og:url" content="https://noirvpn.org/" />
 <meta property="og:title" content="Noir VPN: VPN, который не отваливается" />
 <meta property="og:description" content="Reality и 36 вариантов обхода белых списков. Работает у всех операторов и во всех регионах. 7 дней бесплатно, без карты." />
@@ -28,14 +32,14 @@
 <meta name="twitter:description" content="Reality и 36 вариантов обхода белых списков. 7 дней бесплатно, без карты." />
 <meta name="twitter:image" content="https://noirvpn.org/og.png" />
 
-<link rel="icon" href="favicon.ico" sizes="32x32" />
-<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192" />
-<link rel="apple-touch-icon" href="icon-180.png" />
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/icon-180.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="noir-landing.css" />
+<link rel="stylesheet" href="/noir-landing.css" />
 
 <script type="application/ld+json">
 {
@@ -154,6 +158,10 @@
     </nav>
     <div class="nav-cta">
       <span class="nav-status"><span class="live"></span>все ноды в норме</span>
+      <div class="lang" role="group" aria-label="Язык / Language">
+        <span class="lang-on" aria-current="true">RU</span>
+        <a href="/en/" hreflang="en" lang="en" data-lang-to="en">EN</a>
+      </div>
       <button class="btn btn-primary" type="button" data-cta>Попробовать VPN</button>
       <button class="nav-burger" id="burger" aria-label="Меню"><i></i><i></i><i></i></button>
     </div>
@@ -168,6 +176,10 @@
   <a href="#pricing">Тариф</a>
   <a href="#faq">Вопросы</a>
   <button class="btn btn-primary" type="button" data-cta>Попробовать VPN</button>
+  <div class="lang drawer-lang" role="group" aria-label="Язык / Language">
+    <span class="lang-on" aria-current="true">RU</span>
+    <a href="/en/" hreflang="en" lang="en" data-lang-to="en">EN</a>
+  </div>
 </nav>
 
 <span id="top"></span>
@@ -213,7 +225,7 @@
             </div>
           </div>
           <div class="tg-body">
-            <div class="tg-cover"><img src="assets/cat-welcome.jpg" alt="Обложка бота Noir: кот в худи noir." /></div>
+            <div class="tg-cover"><img src="/assets/cat-welcome.jpg" alt="Обложка бота Noir: кот в худи noir." /></div>
             <div class="tg-bubble">
               Привет. Это <b>Noir</b>.<br/>
               VPN с Reality и 36 обходами белых списков. Работает там, где другие отваливаются.<br/>
@@ -379,7 +391,7 @@
     <div class="loc-grid">
       <div class="loc reveal">
         <div class="loc-top">
-          <span class="loc-flag"><img src="assets/flag-de.webp" alt="Германия" /></span>
+          <span class="loc-flag"><img src="/assets/flag-de.webp" alt="Германия" /></span>
           <div><div class="nm">Германия <span class="nx">основная</span></div><div class="code">noir-de · Frankfurt</div></div>
         </div>
         <div class="loc-meta">
@@ -389,7 +401,7 @@
       </div>
       <div class="loc reveal">
         <div class="loc-top">
-          <span class="loc-flag"><img src="assets/flag-nl.png" alt="Нидерланды" /></span>
+          <span class="loc-flag"><img src="/assets/flag-nl.png" alt="Нидерланды" /></span>
           <div><div class="nm">Нидерланды <span class="nx">резервная</span></div><div class="code">noir-nl · Rotterdam</div></div>
         </div>
         <div class="loc-meta">
@@ -399,7 +411,7 @@
       </div>
       <div class="loc reveal">
         <div class="loc-top">
-          <span class="loc-flag"><img src="assets/flag-us.webp" alt="США" /></span>
+          <span class="loc-flag"><img src="/assets/flag-us.webp" alt="США" /></span>
           <div><div class="nm">США <span class="nx">для сервисов</span></div><div class="code">noir-us · Dallas</div></div>
         </div>
         <div class="loc-meta">
@@ -409,7 +421,7 @@
       </div>
     </div>
     <div class="bypass reveal">
-      <img class="bypass-img" src="assets/cat-paws.jpg" alt="" loading="lazy" />
+      <img class="bypass-img" src="/assets/cat-paws.jpg" alt="" loading="lazy" />
       <div class="bypass-body">
         <div class="bypass-num">36</div>
         <div class="bypass-txt">
@@ -580,7 +592,7 @@
 
 <!-- ============================ FINAL CTA ============================ -->
 <section class="section final">
-  <div class="final-bg"><img src="assets/cat-lamp.jpg" alt="" loading="lazy" /></div>
+  <div class="final-bg"><img src="/assets/cat-lamp.jpg" alt="" loading="lazy" /></div>
   <div class="fglow"></div>
   <div class="wrap">
     <h2 class="reveal">Тихий трафик.<br/>Который не замолкает.</h2>
@@ -673,7 +685,7 @@
   <span class="go">Начать</span>
 </button>
 
-<script src="noir-landing.js"></script>
-<script src="noir-analytics.js"></script>
+<script src="/noir-landing.js"></script>
+<script src="/noir-analytics.js"></script>
 </body>
 </html>
