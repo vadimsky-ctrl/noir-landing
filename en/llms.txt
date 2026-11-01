@@ -1,19 +1,24 @@
 # Noir VPN
 
 > A VPN service for people inside Russia. The Reality protocol (VLESS + XTLS-Vision on
-> Xray-core) and 36 bypass routes for whitelist-only mobile internet. Sign-up, payment
-> and support all run through a Telegram bot, with no web registration required.
-> Current as of September 2026. This is the English version; the Russian original
+> Xray-core) and 36 bypass routes for whitelist-only mobile internet. Sign-up and payment
+> run through a Telegram bot or an account on the website (email login), and support is
+> in Telegram. Current as of September 2026; the app and connection details were updated
+> on 1 November 2026. This is the English version; the Russian original
 > lives at https://noirvpn.org/llms.txt
 
 ## Facts
 
 - Site: https://noirvpn.org/ (English: https://noirvpn.org/en/)
 - Bot and entry point: https://t.me/NoirVPN_bot
+- Account: on the website (the "Account" link in the footer), email login, no Telegram needed
 - Public channel with node status: https://t.me/noirvpn_status
 - Support: https://t.me/HelpNoir_bot
 - Protocol: VLESS + Reality + XTLS-Vision, no front domain
-- Client: Happ (iOS, iPadOS, Android, Windows, macOS, Android TV), auto-import via `happ://`
+- Platforms: iPhone and iPad, Android, Windows, macOS, Android TV, Apple TV
+- Apps: Happ (Android, Windows, macOS, Android TV, Apple TV; also iPhone and iPad with an Apple ID from another country or if already installed), OneXray (iPhone and iPad with a Russian Apple ID), INCY (a fallback on iOS and Android)
+- iPhone and iPad: Happ and INCY were removed from the Russian App Store (INCY around 27 October 2026), so with a Russian Apple ID Noir recommends OneXray: it is free, available in the Russian App Store and takes the whole subscription
+- Connecting: the same path in the bot and in the account: Connect, device, app, add the subscription in one tap; for any other app or a router there is a QR code and a plain subscription link; it takes a couple of minutes
 - Exit locations: Germany (Frankfurt), Netherlands (Rotterdam), United States (Dallas)
 - Ping from Moscow: ~40 ms DE, ~49 ms NL, ~153 ms US
 - Data: unlimited. Node channel capacity: up to 300 Mbps

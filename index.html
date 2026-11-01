@@ -53,7 +53,7 @@
       "url": "https://noirvpn.org/",
       "logo": "https://noirvpn.org/icon-180.png",
       "slogan": "Тихий трафик.",
-      "description": "VPN-сервис для пользователей внутри России: протокол Reality, 36 вариантов обхода whitelist-режима мобильного интернета, ноды в Германии, Нидерландах и США. Подключение и оплата через Telegram-бот.",
+      "description": "VPN-сервис для пользователей внутри России: протокол Reality, 36 вариантов обхода whitelist-режима мобильного интернета, ноды в Германии, Нидерландах и США. Подключение и оплата через Telegram-бот или личный кабинет на сайте.",
       "sameAs": [
         "https://t.me/NoirVPN_bot",
         "https://t.me/noirvpn_status"
@@ -71,7 +71,7 @@
       "url": "https://noirvpn.org/",
       "name": "Noir VPN",
       "inLanguage": "ru-RU",
-      "dateModified": "2026-07-30",
+      "dateModified": "2026-11-02",
       "publisher": { "@id": "https://noirvpn.org/#org" }
     },
     {
@@ -115,17 +115,22 @@
         {
           "@type": "Question",
           "name": "Как подключиться?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Открой @NoirVPN_bot, забери 7 дней бесплатно и нажми «Подключить», приложение Happ откроется само и импортирует подписку. Весь процесс займёт около 30 секунд." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Открой @NoirVPN_bot, забери 7 дней бесплатно и нажми «Подключить». Выбери устройство и приложение (Happ, а на iPhone с российским Apple ID OneXray), и подписка добавится одним нажатием. Если Telegram не открывается или не нужен, то же самое можно сделать в личном кабинете на сайте (вход по почте). Нужно другое приложение или роутер: и в боте, и в кабинете есть QR-код и обычная ссылка подписки. Весь путь занимает пару минут." }
+        },
+        {
+          "@type": "Question",
+          "name": "Какое приложение поставить на iPhone?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Если Apple ID российский, ставь OneXray: он бесплатный, есть в российском App Store и принимает подписку Noir целиком, с узлами и правилами маршрутизации. Happ и INCY из российского App Store убрали (INCY в конце октября), поэтому их можно поставить только с Apple ID другой страны. Если Happ или INCY уже стоит на телефоне, пользуйся им и не удаляй: заново из российского App Store его не поставить. Приложения с похожими названиями в российском поиске выпустили другие разработчики, ставить их не стоит." }
         },
         {
           "@type": "Question",
           "name": "Сколько стоит и нужна ли карта?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Пробные 7 дней: бесплатно и без карты, с лимитом 30 ГБ трафика и 8 ГБ на обход белых списков. Дальше единый тариф 249 ₽ за месяц, 599 ₽ за 3 месяца, 999 ₽ за 6 и 1690 ₽ за год, то есть от 141 ₽/мес на длинном сроке. В подписке 50 ГБ обхода в месяц, можно докупить. Оплата картой РФ, по СБП или криптой." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Пробные 7 дней: бесплатно и без карты, с лимитом 30 ГБ трафика и 8 ГБ на обход белых списков. Дальше единый тариф 249 ₽ за месяц, 599 ₽ за 3 месяца, 999 ₽ за 6 и 1690 ₽ за год, то есть от 141 ₽/мес на длинном сроке. В подписке 50 ГБ обхода в месяц, можно докупить. Оплата картой РФ, по СБП или криптой; поможет и поддержка @HelpNoir_bot." }
         },
         {
           "@type": "Question",
           "name": "На каких устройствах работает?",
-          "acceptedAnswer": { "@type": "Answer", "text": "На всём, где есть Happ: iPhone и iPad, Android, Windows, macOS, Android TV. В одной подписке 5 устройств одновременно, отдельной лицензии на каждое не нужно." }
+          "acceptedAnswer": { "@type": "Answer", "text": "iPhone и iPad, Android, Windows, Mac, Android TV и Apple TV. На Android, Windows, Mac и телевизорах работает Happ (на Mac он ставится файлом, App Store не нужен), на iPhone и iPad приложение зависит от Apple ID, подробности в вопросе выше. Для другого приложения или роутера есть QR-код и обычная ссылка подписки. В одной подписке 5 устройств одновременно, отдельной лицензии на каждое не нужно." }
         },
         {
           "@type": "Question",
@@ -195,7 +200,7 @@
     <div class="hero-copy">
       <span class="eyebrow">Reality · 36 обходов белых списков</span>
       <h1>VPN, который <em>не&nbsp;отваливается</em></h1>
-      <p class="hero-sub">Протокол Reality и 36 вариантов обхода whitelist-режима: у всех операторов, во всех регионах. Без карты, подключение в Happ за&nbsp;30&nbsp;секунд.</p>
+      <p class="hero-sub">Протокол Reality и 36 вариантов обхода whitelist-режима: у всех операторов, во всех регионах. Без карты, подключение за&nbsp;пару&nbsp;минут.</p>
       <div class="hero-cta">
         <button class="btn btn-primary btn-lg" type="button" data-cta>Попробовать VPN</button>
         <a class="btn btn-ghost btn-lg" href="#how">Как это работает</a>
@@ -235,9 +240,9 @@
             <div class="tg-btn">
               <div class="tg-key">
                 <svg class="k" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                Подключить в Happ
+                Подключить
               </div>
-              <div class="tg-key sec">У меня нет Happ</div>
+              <div class="tg-key sec">QR и ссылка</div>
             </div>
           </div>
         </div>
@@ -260,7 +265,7 @@
     </div>
     <div class="band-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 12l2 2 4-4"/></svg>
-      <span>Клиент <span class="mono">Happ</span> · 30 секунд</span>
+      <span>Приложение под устройство · <span class="mono">пара минут</span></span>
     </div>
     <div class="band-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
@@ -303,8 +308,8 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Как это работает</span>
-      <h2 class="title">Три тапа в Telegram, и ты в сети</h2>
-      <p class="lead">Никакой веб-регистрации, личных кабинетов и анкет. Всё происходит в боте и приложении Happ.</p>
+      <h2 class="title">Три шага, и ты в сети</h2>
+      <p class="lead">Подключиться можно в Telegram-боте или в личном кабинете на сайте, как удобнее. Анкет нет: выбираешь устройство, ставишь приложение, подписка добавляется одним нажатием.</p>
     </div>
     <div class="steps">
       <div class="step reveal">
@@ -315,14 +320,14 @@
       </div>
       <div class="step reveal">
         <div class="num">2</div>
-        <h3>Открой в Happ</h3>
-        <p>Одна кнопка «Подключить»: Happ откроется сам и импортирует подписку. Профиль выбирать не нужно.</p>
-        <div class="tag">happ:// · авто-импорт</div>
+        <h3>Добавь в приложение</h3>
+        <p>Нажми «Подключить», выбери устройство и приложение: Happ, а на iPhone с российским Apple ID OneXray. Подписка добавится одним нажатием.</p>
+        <div class="tag">один тап · авто-импорт</div>
       </div>
       <div class="step reveal">
         <div class="num">3</div>
         <h3>Подключено</h3>
-        <p>Happ сам берёт рабочий узел и держит соединение. Заблокировали IP? Переключит без твоего участия.</p>
+        <p>Включи VPN в приложении. Заблокировали IP? Happ сам возьмёт рабочий узел и переключит без твоего участия.</p>
         <div class="tag">urltest · auto-failover</div>
       </div>
     </div>
@@ -486,7 +491,7 @@
           </tr>
           <tr>
             <td class="feat-name">Подключение</td>
-            <td class="us" data-th="Noir">1 кнопка → авто-импорт в Happ</td>
+            <td class="us" data-th="Noir">«Подключить» → авто-импорт в приложение</td>
             <td data-th="VPN-бот">Ручной импорт конфига</td>
             <td data-th="Зарубежный">Своё приложение, выбор сервера</td>
           </tr>
@@ -568,7 +573,11 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Как подключиться?<span class="ic"></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Открой <span class="mono">@NoirVPN_bot</span>, забери 7 дней бесплатно и нажми «Подключить», приложение Happ откроется само и импортирует подписку. Весь процесс займёт около 30 секунд.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Открой <span class="mono">@NoirVPN_bot</span>, забери 7 дней бесплатно и нажми «Подключить». Выбери устройство и приложение (Happ, а на iPhone с российским Apple ID OneXray), и подписка добавится одним нажатием. Если Telegram не открывается или не нужен, то же самое можно сделать в личном кабинете на сайте (вход по почте). Нужно другое приложение или роутер: и в боте, и в кабинете есть QR-код и обычная ссылка подписки. Весь путь занимает пару минут.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Какое приложение поставить на iPhone?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Если Apple ID российский, ставь OneXray: он бесплатный, есть в российском App Store и принимает подписку Noir целиком, с узлами и правилами маршрутизации. Happ и INCY из российского App Store убрали (INCY в конце октября), поэтому их можно поставить только с Apple ID другой страны. Если Happ или INCY уже стоит на телефоне, пользуйся им и не удаляй: заново из российского App Store его не поставить. Приложения с похожими названиями в российском поиске выпустили другие разработчики, ставить их не стоит.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Сколько стоит и нужна ли карта?<span class="ic"></span></button>
@@ -576,7 +585,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">На каких устройствах работает?<span class="ic"></span></button>
-        <div class="faq-a"><div class="faq-a-inner">На всём, где есть Happ: iPhone и iPad, Android, Windows, macOS, Android TV. В одной подписке 5 устройств одновременно, отдельной лицензии на каждое не нужно.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">iPhone и iPad, Android, Windows, Mac, Android TV и Apple TV. На Android, Windows, Mac и телевизорах работает Happ (на Mac он ставится файлом, App Store не нужен), на iPhone и iPad приложение зависит от Apple ID, подробности в вопросе выше. Для другого приложения или роутера есть QR-код и обычная ссылка подписки. В одной подписке 5 устройств одновременно, отдельной лицензии на каждое не нужно.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Чем Reality лучше WireGuard и OpenVPN?<span class="ic"></span></button>
@@ -596,7 +605,7 @@
   <div class="fglow"></div>
   <div class="wrap">
     <h2 class="reveal">Тихий трафик.<br/>Который не замолкает.</h2>
-    <p class="reveal">Семь дней на пробу: на сайте или в Telegram, как удобнее. Без анкет, подключение за 30 секунд.</p>
+    <p class="reveal">Семь дней на пробу: на сайте или в Telegram, как удобнее. Без анкет, подключение за пару минут.</p>
     <div class="hero-cta reveal">
       <button class="btn btn-primary btn-lg" type="button" data-cta>Попробовать VPN</button>
     </div>

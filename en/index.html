@@ -53,7 +53,7 @@
       "url": "https://noirvpn.org/",
       "logo": "https://noirvpn.org/icon-180.png",
       "slogan": "Quiet Traffic.",
-      "description": "A VPN service for people inside Russia: the Reality protocol, 36 bypass routes for whitelist-only mobile internet, nodes in Germany, the Netherlands and the US. Sign-up and payment through a Telegram bot.",
+      "description": "A VPN service for people inside Russia: the Reality protocol, 36 bypass routes for whitelist-only mobile internet, nodes in Germany, the Netherlands and the US. Sign-up and payment through a Telegram bot or an account on the website.",
       "sameAs": [
         "https://t.me/NoirVPN_bot",
         "https://t.me/noirvpn_status"
@@ -71,7 +71,7 @@
       "url": "https://noirvpn.org/en/",
       "name": "Noir VPN",
       "inLanguage": "en",
-      "dateModified": "2026-09-09",
+      "dateModified": "2026-11-02",
       "publisher": { "@id": "https://noirvpn.org/#org" }
     },
     {
@@ -115,12 +115,17 @@
         {
           "@type": "Question",
           "name": "How do I connect?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Open @NoirVPN_bot, claim the 7 free days and press Connect. Happ opens by itself and imports the subscription. The whole thing takes about 30 seconds." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Open @NoirVPN_bot, claim the 7 free days and press Connect. Pick your device and app (Happ, or OneXray on an iPhone with a Russian Apple ID) and the subscription is added in one tap. If Telegram will not open or you would rather not use it, you can do the same in your account on the site (email login). Need another app or a router? Both the bot and the account give you a QR code and a plain subscription link. The whole thing takes a couple of minutes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which app should I install on an iPhone?",
+          "acceptedAnswer": { "@type": "Answer", "text": "If your Apple ID is Russian, install OneXray: it is free, it is available in the Russian App Store, and it takes the whole Noir subscription, nodes and routing rules included. Happ and INCY were removed from the Russian App Store (INCY at the end of October), so they can only be installed with an Apple ID from another country. If Happ or INCY is already on your phone, keep using it and do not delete it: it cannot be reinstalled from the Russian App Store. Apps with similar names in the Russian search results come from other developers, so do not install them." }
         },
         {
           "@type": "Question",
           "name": "What does it cost, and do I need a card?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The 7-day trial is free and needs no card, with a 30 GB data cap and 8 GB of whitelist bypass. After that there is a single plan: ₽249 per month, ₽599 for 3 months, ₽999 for 6 and ₽1,690 for a year, which works out to ₽141 per month on the longest term (roughly $3 down to $1.70). The subscription includes 50 GB of bypass per month and you can top that up. Payment by Russian bank card, SBP or crypto." }
+          "acceptedAnswer": { "@type": "Answer", "text": "The 7-day trial is free and needs no card, with a 30 GB data cap and 8 GB of whitelist bypass. After that there is a single plan: ₽249 per month, ₽599 for 3 months, ₽999 for 6 and ₽1,690 for a year, which works out to ₽141 per month on the longest term (roughly $3 down to $1.70). The subscription includes 50 GB of bypass per month and you can top that up. Payment by Russian bank card, SBP or crypto; support at @HelpNoir_bot will help if something goes sideways." }
         },
         {
           "@type": "Question",
@@ -130,7 +135,7 @@
         {
           "@type": "Question",
           "name": "Which devices does it run on?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Anything that runs Happ: iPhone and iPad, Android, Windows, macOS, Android TV. One subscription covers 5 devices at once, with no per-device licence." }
+          "acceptedAnswer": { "@type": "Answer", "text": "iPhone and iPad, Android, Windows, Mac, Android TV and Apple TV. Happ covers Android, Windows, Mac and TVs (on a Mac it installs from a file, no App Store needed); on iPhone and iPad the app depends on your Apple ID, see the question above. For any other app or a router there is a QR code and a plain subscription link. One subscription covers 5 devices at once, with no per-device licence." }
         },
         {
           "@type": "Question",
@@ -200,7 +205,7 @@
     <div class="hero-copy">
       <span class="eyebrow">Reality · 36 whitelist bypass routes</span>
       <h1>The VPN that <em>doesn't&nbsp;drop</em></h1>
-      <p class="hero-sub">Built for people inside Russia. The Reality protocol and 36 bypass routes for whitelist-only mobile internet: every carrier, every region. No card, connected in Happ in&nbsp;30&nbsp;seconds.</p>
+      <p class="hero-sub">Built for people inside Russia. The Reality protocol and 36 bypass routes for whitelist-only mobile internet: every carrier, every region. No card, connected in a couple of&nbsp;minutes.</p>
       <div class="hero-cta">
         <button class="btn btn-primary btn-lg" type="button" data-cta>Try Noir free</button>
         <a class="btn btn-ghost btn-lg" href="#how">How it works</a>
@@ -240,9 +245,9 @@
             <div class="tg-btn">
               <div class="tg-key">
                 <svg class="k" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                Connect in Happ
+                Connect
               </div>
-              <div class="tg-key sec">I don't have Happ</div>
+              <div class="tg-key sec">QR and link</div>
             </div>
           </div>
         </div>
@@ -265,7 +270,7 @@
     </div>
     <div class="band-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 12l2 2 4-4"/></svg>
-      <span><span class="mono">Happ</span> client · 30 seconds</span>
+      <span>An app for your device · <span class="mono">a couple of minutes</span></span>
     </div>
     <div class="band-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
@@ -308,8 +313,8 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">How it works</span>
-      <h2 class="title">Three taps in Telegram and you're online</h2>
-      <p class="lead">No web sign-up forms, no account questionnaires. Everything happens in the bot and in the Happ app.</p>
+      <h2 class="title">Three steps and you're online</h2>
+      <p class="lead">Connect in the Telegram bot or in your account on the site, whichever suits you. No forms: pick your device, install the app, and the subscription is added in one tap.</p>
     </div>
     <div class="steps">
       <div class="step reveal">
@@ -320,14 +325,14 @@
       </div>
       <div class="step reveal">
         <div class="num">2</div>
-        <h3>Open it in Happ</h3>
-        <p>One "Connect" button: Happ opens by itself and imports the subscription. Nothing to pick from a list.</p>
-        <div class="tag">happ:// · auto-import</div>
+        <h3>Add it to the app</h3>
+        <p>Press "Connect", then pick your device and app: Happ, or OneXray on an iPhone with a Russian Apple ID. The subscription is added in one tap.</p>
+        <div class="tag">one tap · auto-import</div>
       </div>
       <div class="step reveal">
         <div class="num">3</div>
         <h3>Connected</h3>
-        <p>Happ picks a working node and holds the connection. IP blocked? It switches without asking you.</p>
+        <p>Switch the VPN on in the app. IP blocked? Happ picks a working node by itself and switches without asking you.</p>
         <div class="tag">urltest · auto-failover</div>
       </div>
     </div>
@@ -491,7 +496,7 @@
           </tr>
           <tr>
             <td class="feat-name">Setup</td>
-            <td class="us" data-th="Noir">1 button → auto-import into Happ</td>
+            <td class="us" data-th="Noir">"Connect" → auto-import into the app</td>
             <td data-th="VPN bot">Manual config import</td>
             <td data-th="Foreign VPN">Own app, pick a server</td>
           </tr>
@@ -573,7 +578,11 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">How do I connect?<span class="ic"></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Open <span class="mono">@NoirVPN_bot</span>, claim the 7 free days and press "Connect". Happ opens by itself and imports the subscription. The whole thing takes about 30 seconds.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Open <span class="mono">@NoirVPN_bot</span>, claim the 7 free days and press "Connect". Pick your device and app (Happ, or OneXray on an iPhone with a Russian Apple ID) and the subscription is added in one tap. If Telegram will not open or you would rather not use it, you can do the same in your account on the site (email login). Need another app or a router? Both the bot and the account give you a QR code and a plain subscription link. The whole thing takes a couple of minutes.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Which app should I install on an iPhone?<span class="ic"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">If your Apple ID is Russian, install OneXray: it is free, it is available in the Russian App Store, and it takes the whole Noir subscription, nodes and routing rules included. Happ and INCY were removed from the Russian App Store (INCY at the end of October), so they can only be installed with an Apple ID from another country. If Happ or INCY is already on your phone, keep using it and do not delete it: it cannot be reinstalled from the Russian App Store. Apps with similar names in the Russian search results come from other developers, so do not install them.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">What does it cost, and do I need a card?<span class="ic"></span></button>
@@ -585,7 +594,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Which devices does it run on?<span class="ic"></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Anything that runs Happ: iPhone and iPad, Android, Windows, macOS, Android TV. One subscription covers 5 devices at once, with no per-device licence.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">iPhone and iPad, Android, Windows, Mac, Android TV and Apple TV. Happ covers Android, Windows, Mac and TVs (on a Mac it installs from a file, no App Store needed); on iPhone and iPad the app depends on your Apple ID, see the question above. For any other app or a router there is a QR code and a plain subscription link. One subscription covers 5 devices at once, with no per-device licence.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Why is Reality better than WireGuard or OpenVPN?<span class="ic"></span></button>
@@ -605,7 +614,7 @@
   <div class="fglow"></div>
   <div class="wrap">
     <h2 class="reveal">Quiet traffic.<br/>That never goes quiet.</h2>
-    <p class="reveal">Seven days on the house, on the site or in Telegram, whichever suits you. No forms, connected in 30 seconds.</p>
+    <p class="reveal">Seven days on the house, on the site or in Telegram, whichever suits you. No forms, connected in a couple of minutes.</p>
     <div class="hero-cta reveal">
       <button class="btn btn-primary btn-lg" type="button" data-cta>Try Noir free</button>
     </div>
