@@ -17,8 +17,8 @@
 - Protocol: VLESS + Reality + XTLS-Vision, no front domain
 - Platforms: iPhone and iPad, Android, Windows, macOS, Android TV, Apple TV
 - Apps: Happ (Android, Windows, macOS, Android TV, Apple TV; also iPhone and iPad with an Apple ID from another country or if already installed), OneXray (iPhone and iPad with a Russian Apple ID), INCY (a fallback on iOS and Android)
-- iPhone and iPad: Happ and INCY were removed from the Russian App Store (INCY around 27 October 2026), so with a Russian Apple ID Noir recommends OneXray: it is free, available in the Russian App Store and takes the whole subscription
-- Connecting: the same path in the bot and in the account: Connect, device, app, add the subscription in one tap; for any other app or a router there is a QR code and a plain subscription link; it takes a couple of minutes
+- iPhone and iPad: Happ and INCY were removed from the Russian App Store (INCY around 27 October 2026), so with a Russian Apple ID Noir recommends OneXray: it is free, available in the Russian App Store and takes the whole subscription; during the trial OneXray accepts it only with the device ID (HWID), so it is added by hand with sending the device ID turned on
+- Connecting: the same path in the bot and in the account: Connect, device, app, add the subscription in one tap (OneXray during the trial by hand, with the device ID turned on); for any other app or a router there is a QR code and a plain subscription link; it takes a couple of minutes
 - Exit locations: Germany (Frankfurt), Netherlands (Rotterdam), United States (Dallas)
 - Ping from Moscow: ~40 ms DE, ~49 ms NL, ~153 ms US
 - Data: unlimited. Node channel capacity: up to 300 Mbps
